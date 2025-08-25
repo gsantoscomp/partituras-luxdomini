@@ -928,46 +928,64 @@
        $donateWrap.hidden = false; $mpLink.href = d.mercadoPagoUrl || '#';
      }
 
-         // ===================== CARREGAR PARTITURAS =====================
-     async function loadSheet(){
-       if (!CONFIG.SHEET_JSON_URL){ console.warn('Defina SHEET_JSON_URL nas configurações.'); return; }
-       
-       try {
-         const res = await fetch(CONFIG.SHEET_JSON_URL, { cache: 'no-store' });
-         const data = await res.json();
-         
-         if (data.partituras && Array.isArray(data.partituras)) {
-           state.items = data.partituras.map(item => ({
-             id: item.id || '',
-             title: item.title || 'Sem título',
-             instagram_url: item.instagram_url || '',
-             drive_link: item.drive_link || '',
-             tags: Array.isArray(item.tags) ? item.tags : [],
-             compositor: item.compositor || ''
-           }));
-           
-                        buildTagChips();
-             state.filtered = state.items.slice();
-             state.currentPage = 1;
-             render(state.filtered);
-           
-           console.log(`✅ ${state.items.length} partitura(s) carregada(s)`);
-         } else {
-           throw new Error('Formato de arquivo inválido. Esperado: { "partituras": [...] }');
-         }
-                } catch (error) {
-           console.error('❌ Erro ao carregar partituras:', error);
-           const errorCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-           $grid.innerHTML = `
-             <div style="text-align: center; padding: 40px; color: var(--muted);">
-               <h3>⚠️ Erro interno do sistema</h3>
-               <p>Ocorreu um problema inesperado. Tente recarregar a página.</p>
-               <p>Código de erro: <code>${errorCode}</code></p>
-               <p>Se o problema persistir, entre em contato conosco.</p>
-             </div>
-           `;
-         }
-     }
+                   // ===================== CARREGAR PARTITURAS =====================
+      async function loadSheet(){
+        if (!CONFIG.SHEET_JSON_URL){ 
+          console.warn('Defina SHEET_JSON_URL nas configurações.'); 
+          showError('Configuração inválida: SHEET_JSON_URL não definido');
+          return; 
+        }
+        
+        try {
+          console.log('🔄 Carregando partituras...');
+          const res = await fetch(CONFIG.SHEET_JSON_URL, { cache: 'no-store' });
+          
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+          }
+          
+          const data = await res.json();
+          console.log('📄 Dados recebidos:', data);
+          
+          if (data && data.partituras && Array.isArray(data.partituras)) {
+            state.items = data.partituras.map(item => ({
+              id: item.id || '',
+              title: item.title || 'Sem título',
+              instagram_url: item.instagram_url || '',
+              drive_link: item.drive_link || '',
+              tags: Array.isArray(item.tags) ? item.tags : [],
+              compositor: item.compositor || ''
+            }));
+            
+            console.log(`✅ ${state.items.length} partitura(s) processada(s)`, state.items);
+            
+            // Remover buildTagChips() já que não temos mais filtros
+            state.filtered = state.items.slice();
+            state.currentPage = 1;
+            render(state.filtered);
+            
+            console.log(`✅ ${state.items.length} partitura(s) carregada(s) com sucesso`);
+          } else {
+            throw new Error('Formato de arquivo inválido. Esperado: { "partituras": [...] }');
+          }
+        } catch (error) {
+          console.error('❌ Erro ao carregar partituras:', error);
+          showError(`Erro ao carregar partituras: ${error.message}`);
+        }
+      }
+      
+      function showError(message) {
+        const errorCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+        $grid.innerHTML = `
+          <div style="text-align: center; padding: 40px; color: var(--muted);">
+            <h3>⚠️ Erro interno do sistema</h3>
+            <p>${message}</p>
+            <p>Código de erro: <code>${errorCode}</code></p>
+            <p>Se o problema persistir, entre em contato conosco.</p>
+            <button class="btn" onclick="location.reload()" style="margin-top: 16px;">Recarregar página</button>
+          </div>
+        `;
+      }
 
          // ===================== INIT =====================
      $btnSearch.addEventListener('click', applySearch);
