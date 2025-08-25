@@ -1039,17 +1039,24 @@
        render(state.filtered);
      }
      
-     function nextPage() {
-       if (state.currentPage < Math.ceil(state.filtered.length / state.itemsPerPage)) {
-         goToPage(state.currentPage + 1);
-       }
-     }
-     
-     function prevPage() {
-       if (state.currentPage > 1) {
-         goToPage(state.currentPage - 1);
-       }
-     }
+           function nextPage() {
+        if (state.currentPage < Math.ceil(state.filtered.length / state.itemsPerPage)) {
+          goToPage(state.currentPage + 1);
+          // Rolar para o topo da página
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+      
+      function prevPage() {
+        if (state.currentPage > 1) {
+          goToPage(state.currentPage - 1);
+          // Rolar para baixo da página (onde estão os controles de paginação)
+          const paginationElement = document.getElementById('pagination');
+          if (paginationElement) {
+            paginationElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+          }
+        }
+      }
 
          // ===================== BUSCA/FILTRO =====================
      function applySearch(){
