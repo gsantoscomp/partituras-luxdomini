@@ -68,7 +68,7 @@
     .subtitle{margin:8px 0 0;color:var(--muted);font-size:14px}
     .toolbar{margin:18px auto 0;max-width:1100px;display:grid;gap:12px;grid-template-columns:1fr 160px 160px}
     .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--input-border);outline:none;background:var(--input-bg);color:var(--text);transition:border-color 0.3s ease,background-color 0.3s ease}
-    .btn{--g:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 50%,#1e40af 100%);appearance:none;border:0;padding:10px 14px;border-radius:10px;font-weight:600;color:#ffffff;cursor:pointer;background:var(--g);box-shadow:0 2px 8px rgba(59,130,246,0.2);transition:all 0.2s ease}
+         .btn{--g:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 50%,#1e40af 100%);appearance:none;border:0;padding:10px 14px;border-radius:10px;font-weight:600;color:#ffffff;cursor:pointer;background:var(--g);box-shadow:0 2px 8px rgba(59,130,246,0.2);transition:all 0.2s ease;text-decoration:none}
     .btn:active{transform:translateY(1px);box-shadow:0 1px 4px rgba(59,130,246,0.3)}
     .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,0.3)}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);transition:border-color 0.3s ease,color 0.3s ease}
@@ -539,12 +539,123 @@
             font-size: 14px;
           }
           
-          .donate-btn {
-            padding: 14px 24px;
-            font-size: 15px;
-          }
-        }
-  </style>
+                     .donate-btn {
+             padding: 14px 24px;
+             font-size: 15px;
+           }
+         }
+         
+         /* Loading Skeleton */
+         .loading-skeleton {
+           display: grid;
+           gap: 18px;
+           grid-template-columns: 1fr;
+         }
+         
+         @media(min-width:768px) {
+           .loading-skeleton {
+             grid-template-columns: repeat(2, minmax(0, 1fr));
+           }
+         }
+         
+         @media(min-width:1024px) {
+           .loading-skeleton {
+             grid-template-columns: repeat(3, minmax(0, 1fr));
+           }
+         }
+         
+         .skeleton-card {
+           background: var(--card);
+           border: 1px solid var(--border);
+           border-radius: var(--radius);
+           overflow: clip;
+           display: flex;
+           flex-direction: column;
+           animation: skeleton-pulse 1.5s ease-in-out infinite;
+         }
+         
+         .skeleton-thumb {
+           aspect-ratio: 9/16;
+           background: linear-gradient(90deg, var(--bg) 25%, var(--border) 50%, var(--bg) 75%);
+           background-size: 200% 100%;
+           animation: skeleton-shimmer 2s infinite;
+         }
+         
+         .skeleton-content {
+           padding: 14px;
+           display: grid;
+           gap: 10px;
+         }
+         
+         .skeleton-title {
+           height: 20px;
+           background: linear-gradient(90deg, var(--bg) 25%, var(--border) 50%, var(--bg) 75%);
+           background-size: 200% 100%;
+           animation: skeleton-shimmer 2s infinite;
+           border-radius: 4px;
+         }
+         
+         .skeleton-compositor {
+           height: 16px;
+           width: 60%;
+           background: linear-gradient(90deg, var(--bg) 25%, var(--border) 50%, var(--bg) 75%);
+           background-size: 200% 100%;
+           animation: skeleton-shimmer 2s infinite;
+           border-radius: 4px;
+         }
+         
+         .skeleton-tags {
+           display: flex;
+           gap: 6px;
+         }
+         
+         .skeleton-tag {
+           height: 20px;
+           width: 60px;
+           background: linear-gradient(90deg, var(--bg) 25%, var(--border) 50%, var(--bg) 75%);
+           background-size: 200% 100%;
+           animation: skeleton-shimmer 2s infinite;
+           border-radius: 999px;
+         }
+         
+         .skeleton-buttons {
+           display: flex;
+           gap: 10px;
+           align-items: center;
+           justify-content: space-between;
+         }
+         
+         .skeleton-btn {
+           height: 36px;
+           flex: 1;
+           background: linear-gradient(90deg, var(--bg) 25%, var(--border) 50%, var(--bg) 75%);
+           background-size: 200% 100%;
+           animation: skeleton-shimmer 2s infinite;
+           border-radius: 10px;
+         }
+         
+         @keyframes skeleton-pulse {
+           0%, 100% {
+             opacity: 1;
+           }
+           50% {
+             opacity: 0.7;
+           }
+         }
+         
+         @keyframes skeleton-shimmer {
+           0% {
+             background-position: -200% 0;
+           }
+           100% {
+             background-position: 200% 0;
+           }
+         }
+         
+         .loading-skeleton.hidden {
+           display: none;
+         }
+   </style>
 </head>
 <body>
   <header>
@@ -582,7 +693,101 @@
           </div>
         </section>
        
-       <div id="grid" class="grid" aria-live="polite"></div>
+               <div id="grid" class="grid" aria-live="polite"></div>
+        
+        <!-- Loading skeleton -->
+        <div id="loadingSkeleton" class="loading-skeleton">
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+          <div class="skeleton-card">
+            <div class="skeleton-thumb"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-title"></div>
+              <div class="skeleton-compositor"></div>
+              <div class="skeleton-tags">
+                <div class="skeleton-tag"></div>
+                <div class="skeleton-tag"></div>
+              </div>
+              <div class="skeleton-buttons">
+                <div class="skeleton-btn"></div>
+                <div class="skeleton-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
        
        <!-- Controles de paginação -->
        <div class="pagination" id="pagination" hidden>
@@ -640,9 +845,9 @@
         </div>
       </div>
      
-     <div class="contact-info">
-       <p class="muted">Para contato: <a href="mailto:coralluxdomini@gmail.com" class="contact-email">coralluxdomini@gmail.com</a></p>
-     </div>
+           <div class="contact-info">
+        <p class="muted">Encontrou algum link incorreto ou precisa de ajuda? Entre em contato conosco: <a href="mailto:coralluxdomini@gmail.com" class="contact-email">coralluxdomini@gmail.com</a></p>
+      </div>
    </footer>
 
            <!-- Modal de colaboração -->
@@ -693,7 +898,7 @@
        downloadCount: 0,
        lastCollaborationShown: 0,
        currentPage: 1,
-       itemsPerPage: 8
+               itemsPerPage: 9
      };
 
     // ===================== UTIL =====================
@@ -751,47 +956,51 @@
          const $collaborationModal = document.getElementById('collaborationModal');
      const $skipCollaboration = document.getElementById('skipCollaboration');
      const $collaborateBtn = document.getElementById('collaborateBtn');
-         const $donateWrap = document.getElementById('donateWrap');
-     const $mpLink = document.getElementById('mpLink');
+                   const $donateWrap = document.getElementById('donateWrap');
+      const $mpLink = document.getElementById('mpLink');
+      const $loadingSkeleton = document.getElementById('loadingSkeleton');
 
          // ===================== RENDER =====================
-     function render(items){
-       // Calcular itens para a página atual
-       const startIndex = (state.currentPage - 1) * state.itemsPerPage;
-       const endIndex = startIndex + state.itemsPerPage;
-       const itemsToShow = items.slice(startIndex, endIndex);
-       
-       $grid.innerHTML = '';
-       for (const it of itemsToShow){
-         const node = $tpl.content.cloneNode(true);
-         node.querySelector('[data-title]').textContent = it.title || 'Sem título';
-         
-         // Compositor
-         const compositor = node.querySelector('[data-compositor]');
-         if (it.compositor) {
-           compositor.textContent = it.compositor;
-         } else {
-           compositor.style.display = 'none';
-         }
-         
-         const wrap = node.querySelector('[data-tags-wrap]');
-         (it.tags||[]).forEach(t=>{ const span = document.createElement('span'); span.className='tag'; span.textContent=t; wrap.appendChild(span); });
-         const open = node.querySelector('[data-open]');
-         open.href = it.instagram_url || it.instagramUrl || '#';
-         const dl = node.querySelector('[data-download]');
-         dl.href = makeDirectDownload(it.drive_link || it.driveLink || '');
-         // embed
-         const holder = node.querySelector('[data-embed]');
-         const permalink = it.instagram_url || it.instagramUrl || '';
-         holder.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${permalink}" data-instgrm-captioned data-instgrm-version="14"></blockquote>`;
-         $grid.appendChild(node);
-       }
-       
-       // Atualizar controles de paginação
-       updatePagination(items.length);
-       
-       if (window.instgrm && instgrm.Embeds) instgrm.Embeds.process();
-     }
+           function render(items){
+        // Ocultar skeleton loading
+        $loadingSkeleton.classList.add('hidden');
+        
+        // Calcular itens para a página atual
+        const startIndex = (state.currentPage - 1) * state.itemsPerPage;
+        const endIndex = startIndex + state.itemsPerPage;
+        const itemsToShow = items.slice(startIndex, endIndex);
+        
+        $grid.innerHTML = '';
+        for (const it of itemsToShow){
+          const node = $tpl.content.cloneNode(true);
+          node.querySelector('[data-title]').textContent = it.title || 'Sem título';
+          
+          // Compositor
+          const compositor = node.querySelector('[data-compositor]');
+          if (it.compositor) {
+            compositor.textContent = it.compositor;
+          } else {
+            compositor.style.display = 'none';
+          }
+          
+          const wrap = node.querySelector('[data-tags-wrap]');
+          (it.tags||[]).forEach(t=>{ const span = document.createElement('span'); span.className='tag'; span.textContent=t; wrap.appendChild(span); });
+          const open = node.querySelector('[data-open]');
+          open.href = it.instagram_url || it.instagramUrl || '#';
+          const dl = node.querySelector('[data-download]');
+          dl.href = makeDirectDownload(it.drive_link || it.driveLink || '');
+          // embed
+          const holder = node.querySelector('[data-embed]');
+          const permalink = it.instagram_url || it.instagramUrl || '';
+          holder.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${permalink}" data-instgrm-captioned data-instgrm-version="14"></blockquote>`;
+          $grid.appendChild(node);
+        }
+        
+        // Atualizar controles de paginação
+        updatePagination(items.length);
+        
+        if (window.instgrm && instgrm.Embeds) instgrm.Embeds.process();
+      }
 
          function buildTagChips(){
        const all = unique(state.items.flatMap(i => (i.tags||[])));
@@ -974,18 +1183,21 @@
         }
       }
       
-      function showError(message) {
-        const errorCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-        $grid.innerHTML = `
-          <div style="text-align: center; padding: 40px; color: var(--muted);">
-            <h3>⚠️ Erro interno do sistema</h3>
-            <p>${message}</p>
-            <p>Código de erro: <code>${errorCode}</code></p>
-            <p>Se o problema persistir, entre em contato conosco.</p>
-            <button class="btn" onclick="location.reload()" style="margin-top: 16px;">Recarregar página</button>
-          </div>
-        `;
-      }
+             function showError(message) {
+         // Ocultar skeleton loading
+         $loadingSkeleton.classList.add('hidden');
+         
+         const errorCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+         $grid.innerHTML = `
+           <div style="text-align: center; padding: 40px; color: var(--muted);">
+             <h3>⚠️ Erro interno do sistema</h3>
+             <p>${message}</p>
+             <p>Código de erro: <code>${errorCode}</code></p>
+             <p>Se o problema persistir, entre em contato conosco.</p>
+             <button class="btn" onclick="location.reload()" style="margin-top: 16px;">Recarregar página</button>
+           </div>
+         `;
+       }
 
          // ===================== INIT =====================
      $btnSearch.addEventListener('click', applySearch);
