@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Partituras do Coral Lux Domini — Downloads</title>
+  <meta name="description" content="Página simples para listar vídeos do Instagram com links de download de partituras no Google Drive, com leitura de planilha, coleta de e-mails e doação.">
+  <style>
+         :root {
+       /* Tema Escuro (padrão) */
+       --bg: #1a1a1a;
+       --card: #2a2a2a;
+       --text: #e0e0e0;
+       --muted: #888888;
+       --accent: #3b82f6;
+       --accent2: #1d4ed8;
+       --radius: 16px;
+       --header-bg: rgba(26, 26, 26, 0.95);
+       --border: #404040;
+       --shadow: rgba(0, 0, 0, 0.3);
+       --input-bg: #333333;
+       --input-border: #555555;
+     }
+
+     [data-theme="light"] {
+       /* Tema Claro */
+       --bg: #f5f5f5;
+       --card: #ffffff;
+       --text: #333333;
+       --muted: #666666;
+       --accent: #3b82f6;
+       --accent2: #1d4ed8;
+       --radius: 16px;
+       --header-bg: rgba(245, 245, 245, 0.95);
+       --border: #dddddd;
+       --shadow: rgba(0, 0, 0, 0.1);
+       --input-bg: #ffffff;
+       --input-border: #cccccc;
+     }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial; background:var(--bg); color:var(--text);padding-top:0;margin-top:0;transition:background-color 0.3s ease,color 0.3s ease}
+         header{padding:40px 20px 24px;text-align:center;position:relative;z-index:30;backdrop-filter:blur(8px);background:var(--header-bg);border-bottom:1px solid var(--border);box-shadow:0 4px 20px var(--shadow);min-height:280px;box-sizing:border-box;transition:background-color 0.3s ease,border-color 0.3s ease;overflow:hidden}
+    .logo-container {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo {
+      height: 80px;
+      width: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .title{font-weight:800;letter-spacing:.2px;font-size:clamp(24px,3.5vw,36px);margin:0}
+    .coral-name{
+      font-weight:600;
+      letter-spacing:.1px;
+      font-size:clamp(18px,2.5vw,24px);
+      margin:8px 0 0;
+      color:var(--accent);
+      opacity:0.9;
+    }
+    .subtitle{margin:8px 0 0;color:var(--muted);font-size:14px}
+    .toolbar{margin:18px auto 0;max-width:1100px;display:grid;gap:12px;grid-template-columns:1fr 160px 160px}
+    .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--input-border);outline:none;background:var(--input-bg);color:var(--text);transition:border-color 0.3s ease,background-color 0.3s ease}
+    .btn{--g:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 50%,#1e40af 100%);appearance:none;border:0;padding:10px 14px;border-radius:10px;font-weight:600;color:#ffffff;cursor:pointer;background:var(--g);box-shadow:0 2px 8px rgba(59,130,246,0.2);transition:all 0.2s ease}
+    .btn:active{transform:translateY(1px);box-shadow:0 1px 4px rgba(59,130,246,0.3)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,0.3)}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);transition:border-color 0.3s ease,color 0.3s ease}
+    .btn.ghost:hover{background:rgba(59,130,246,0.05);border-color:var(--accent);color:var(--accent)}
+    .filter{margin:12px auto 0;max-width:1100px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+    .chip{padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:12px;cursor:pointer;transition:background-color 0.3s ease,border-color 0.3s ease,color 0.3s ease}
+    .chip.active{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 1px 4px rgba(59,130,246,0.2)}
+    main{max-width:1100px;margin:0 auto 80px;padding:0 20px;padding-top:20px}
+         .grid{display:grid;gap:18px;grid-template-columns:repeat(2,minmax(0,1fr))}
+     @media(min-width:1024px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:clip;display:flex;flex-direction:column;transition:background-color 0.3s ease,border-color 0.3s ease;box-shadow:0 2px 8px var(--shadow)}
+    .thumb{aspect-ratio:9/16;background:var(--bg);display:grid;place-items:center;border-bottom:1px solid var(--border);transition:background-color 0.3s ease,border-color 0.3s ease}
+    .thumb iframe,.thumb blockquote{width:100%;height:100%}
+    .content{padding:14px;display:grid;gap:10px}
+         .title-sm{font-weight:700;line-height:1.3}
+     .compositor{font-size:14px;color:var(--accent);font-weight:500;margin:4px 0}
+    .meta-info{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:8px 0;
+    }
+    .meta-item{
+      font-size:11px;
+      color:var(--accent);
+      background:rgba(59,130,246,0.1);
+      border:1px solid rgba(59,130,246,0.2);
+      padding:4px 8px;
+      border-radius:6px;
+      font-weight:500;
+      transition:background-color 0.3s ease,border-color 0.3s ease;
+    }
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:12px;color:var(--muted);background:var(--bg);border:1px dashed var(--border);padding:4px 8px;border-radius:999px;transition:background-color 0.3s ease,border-color 0.3s ease}
+    .row{display:flex;gap:10px;align-items:center;justify-content:space-between}
+         footer{text-align:center;color:var(--muted);padding:40px 24px;font-size:14px}
+     .muted{color:var(--muted)}
+     
+     /* Footer redes sociais */
+     .social-links h3 {
+       margin: 0 0 32px;
+       font-size: 20px;
+       font-weight: 600;
+       color: var(--text);
+       text-align: center;
+       position: relative;
+     }
+     
+     .social-links h3::after {
+       content: '';
+       position: absolute;
+       bottom: -8px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 40px;
+       height: 2px;
+       background: linear-gradient(90deg, var(--accent), var(--accent2));
+       border-radius: 1px;
+     }
+     
+     .social-grid {
+       display: flex;
+       justify-content: center;
+       gap: 20px;
+       margin-bottom: 40px;
+       flex-wrap: wrap;
+     }
+     
+     .social-link {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 12px;
+       padding: 24px 20px;
+       border-radius: 16px;
+       text-decoration: none;
+       color: var(--text);
+       background: var(--card);
+       border: 1px solid var(--border);
+       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+       min-width: 120px;
+       position: relative;
+       overflow: hidden;
+     }
+     
+     .social-link::before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: -100%;
+       width: 100%;
+       height: 100%;
+       background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+       transition: left 0.5s ease;
+     }
+     
+     .social-link:hover::before {
+       left: 100%;
+     }
+     
+     .social-link:hover {
+       transform: translateY(-4px) scale(1.02);
+       box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
+       border-color: var(--accent);
+     }
+     
+     .social-icon-wrapper {
+       width: 48px;
+       height: 48px;
+       border-radius: 50%;
+       background: linear-gradient(135deg, var(--accent), var(--accent2));
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       transition: all 0.3s ease;
+       box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+     }
+     
+     .social-link:hover .social-icon-wrapper {
+       transform: scale(1.1);
+       box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+     }
+     
+     .social-icon {
+       width: 24px;
+       height: 24px;
+       color: white;
+       transition: transform 0.3s ease;
+     }
+     
+     .social-link:hover .social-icon {
+       transform: rotate(5deg);
+     }
+     
+     .social-name {
+       font-size: 14px;
+       font-weight: 600;
+       color: var(--text);
+       text-align: center;
+     }
+     
+     .social-handle {
+       font-size: 11px;
+       color: var(--muted);
+       font-weight: 500;
+       opacity: 0.8;
+     }
+     
+     .contact-info {
+       border-top: 1px solid var(--border);
+       padding-top: 24px;
+     }
+     
+     .contact-email {
+       color: var(--accent);
+       text-decoration: none;
+       font-weight: 500;
+       transition: color 0.3s ease;
+     }
+     
+     .contact-email:hover {
+       color: var(--accent2);
+       text-decoration: underline;
+     }
+         /* Modal */
+     .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
+    .modal{background:var(--card);border:1px solid var(--border);border-radius:16px;max-width:460px;width:100%;padding:18px;box-shadow:0 30px 60px var(--shadow);transition:background-color 0.3s ease,border-color 0.3s ease}
+    .modal h3{margin:0 0 8px}
+    .modal p{margin:0 0 12px;color:var(--muted)}
+    .modal .field{display:grid;gap:6px;margin-bottom:12px}
+    .modal input, .modal textarea, .modal select{padding:10px 12px;border-radius:12px;border:1px solid var(--input-border);outline:none;background:var(--input-bg);color:var(--text);transition:border-color 0.3s ease,background-color 0.3s ease}
+         .modal .actions{display:flex;gap:10px;justify-content:flex-end;margin-top:8px;padding:0 20px 20px}
+    .copy{font-size:12px;cursor:pointer}
+                   .donate{
+            margin: 32px 0 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+          }
+          
+          .donate-content {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            border-radius: 20px;
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+          }
+          
+          .donate-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="music" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23music)"/></svg>');
+            opacity: 0.3;
+          }
+          
+          .donate-text {
+            flex: 1;
+            color: white;
+            position: relative;
+            z-index: 1;
+          }
+          
+          .donate-text h3 {
+            margin: 0 0 12px;
+            font-size: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          }
+          
+          .donate-text p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            opacity: 0.95;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+          }
+          
+          .donate-action {
+            position: relative;
+            z-index: 1;
+          }
+          
+          .donate-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 16px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+          }
+          
+          .donate-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+          }
+          
+          .btn-icon {
+            font-size: 18px;
+            animation: pulse 2s infinite;
+          }
+          
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+          }
+          
+          .donate .code{padding:8px 10px;border-radius:10px;border:1px dashed var(--border);background:var(--bg);color:var(--muted);transition:background-color 0.3s ease,border-color 0.3s ease}
+    
+         /* Botão de tema */
+     .theme-toggle {
+       position: absolute;
+       top: 20px;
+       right: 20px;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 6px;
+       min-width: 40px;
+       padding: 8px 10px;
+       background: rgba(255, 255, 255, 0.1);
+       backdrop-filter: blur(10px);
+       border-radius: 20px;
+       opacity: 0.7;
+       transition: all 0.3s ease;
+     }
+     
+     .theme-toggle:hover {
+       opacity: 1;
+       transform: scale(1.05);
+     }
+     
+     .theme-icon {
+       font-size: 14px;
+       transition: transform 0.3s ease;
+     }
+     
+     .theme-toggle:hover .theme-icon {
+       transform: rotate(15deg);
+     }
+     
+     .theme-text {
+       display: none;
+     }
+    
+         /* Modal de colaboração com foto do coral */
+     .collaboration-modal {
+       max-width: 800px;
+       width: 90vw;
+       padding: 0;
+       overflow: hidden;
+       z-index: 1000;
+     }
+     
+     .modal-header {
+       position: relative;
+       margin: 0;
+     }
+     
+     .coral-banner {
+       position: relative;
+       width: 100%;
+       height: 400px;
+       overflow: hidden;
+       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+     }
+     
+     .coral-image {
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       object-position: center;
+       transition: transform 0.3s ease;
+       filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+     }
+     
+     .coral-banner:hover .coral-image {
+       transform: scale(1.05);
+     }
+     
+     .banner-overlay {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       background: linear-gradient(transparent, rgba(0,0,0,0.8));
+       padding: 40px 20px 20px;
+       color: white;
+     }
+     
+     .banner-overlay h3 {
+       margin: 0;
+       font-size: 32px;
+       font-weight: 700;
+       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+     }
+     
+     .modal-content {
+       padding: 32px 28px 28px;
+     }
+     
+     .modal-content p {
+       margin: 0 0 16px;
+       line-height: 1.6;
+     }
+     
+     .modal-content p:last-child {
+       margin-bottom: 0;
+     }
+     
+     .collaboration-modal .actions {
+       padding: 0 28px 28px;
+       margin-top: 16px;
+     }
+     
+     /* Paginação */
+     .pagination {
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       gap: 16px;
+       margin: 32px 0;
+       padding: 20px;
+     }
+     
+     .page-info {
+       color: var(--muted);
+       font-size: 14px;
+       min-width: 120px;
+       text-align: center;
+     }
+     
+            /* Responsividade para mobile */
+       @media (max-width: 768px) {
+         .toolbar {
+           grid-template-columns: 1fr;
+           gap: 8px;
+         }
+         
+         .theme-toggle {
+           top: 15px;
+           right: 15px;
+           min-width: 35px;
+           padding: 6px 8px;
+         }
+         
+         .collaboration-modal {
+           max-width: 95vw;
+           width: 95vw;
+           margin: 20px;
+         }
+         
+         .coral-banner {
+           height: 280px;
+         }
+         
+         .banner-overlay h3 {
+           font-size: 24px;
+         }
+         
+         .modal-content {
+           padding: 24px 20px 20px;
+         }
+         
+         .collaboration-modal .actions {
+           padding: 0 20px 20px;
+           margin-top: 12px;
+         }
+         
+         .social-grid {
+           gap: 16px;
+         }
+         
+         .social-link {
+           min-width: 100px;
+           padding: 20px 16px;
+         }
+         
+         .social-icon-wrapper {
+           width: 40px;
+           height: 40px;
+         }
+         
+         .social-icon {
+           width: 20px;
+           height: 20px;
+         }
+         
+         .social-name {
+           font-size: 13px;
+         }
+         
+                   .social-handle {
+            font-size: 10px;
+          }
+          
+          .donate-content {
+            flex-direction: column;
+            text-align: center;
+            padding: 24px 20px;
+            gap: 20px;
+          }
+          
+          .donate-text h3 {
+            font-size: 20px;
+          }
+          
+          .donate-text p {
+            font-size: 14px;
+          }
+          
+          .donate-btn {
+            padding: 14px 24px;
+            font-size: 15px;
+          }
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="lux-domini.png" alt="Logo Lux Domini" class="logo">
+    </div>
+    <h1 class="title">Downloads de Partituras</h1>
+    <h2 class="coral-name">Coral Lux Domini</h2>
+    <p class="subtitle">Assista aos nossos vídeos do Instagram e baixe a partitura correspondente.</p>
+         <div class="toolbar">
+       <input id="q" class="search" type="search" placeholder="Buscar por título, tag ou trecho…" />
+       <button id="btnSearch" class="btn" title="Pesquisar">Pesquisar</button>
+       <button id="btnClear" class="btn ghost" title="Limpar busca">Limpar</button>
+       <button id="btnTheme" class="btn ghost theme-toggle" title="Alternar tema">
+         <span class="theme-icon">☀</span>
+       </button>
+     </div>
+    <div id="filter" class="filter" aria-label="Filtros por tag"></div>
+  </header>
+
+       <main>
+               <!-- Seção de apoio ao coral em destaque -->
+        <section class="donate" id="donateWrap" hidden>
+          <div class="donate-content">
+                         <div class="donate-text">
+               <h3>Apoie nossa missão litúrgica</h3>
+               <p>Ajude o Coral Lux Domini a continuar levando a beleza da música sacra e a graça de Deus através do canto litúrgico.</p>
+             </div>
+            <div class="donate-action">
+              <a id="mpLink" class="btn donate-btn" target="_blank" rel="noopener">
+                <span class="btn-icon">❤</span>
+                Colaborar
+              </a>
+            </div>
+          </div>
+        </section>
+       
+       <div id="grid" class="grid" aria-live="polite"></div>
+       
+       <!-- Controles de paginação -->
+       <div class="pagination" id="pagination" hidden>
+         <button class="btn ghost" id="btnPrev" disabled>Anterior</button>
+         <span class="page-info" id="pageInfo">Página 1 de 1</span>
+         <button class="btn ghost" id="btnNext" disabled>Próxima</button>
+       </div>
+    <template id="tpl-card">
+             <article class="card" data-tags="">
+         <div class="thumb" data-embed></div>
+         <div class="content">
+           <div class="title-sm" data-title></div>
+           <div class="compositor" data-compositor></div>
+           <div class="tags" data-tags-wrap></div>
+           <div class="row">
+             <a class="btn" target="_blank" rel="noopener" data-download>Baixar partitura</a>
+             <a class="btn ghost" target="_blank" rel="noopener" data-open>Ver no Instagram</a>
+             </div>
+         </div>
+       </article>
+    </template>
+  </main>
+
+     <footer>
+           <div class="social-links">
+        <h3>Conecte-se conosco</h3>
+        <div class="social-grid">
+          <a href="https://www.youtube.com/@coralluxdomini" target="_blank" rel="noopener" class="social-link youtube">
+            <div class="social-icon-wrapper">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </div>
+            <span class="social-name">YouTube</span>
+            <span class="social-handle">@coralluxdomini</span>
+          </a>
+          <a href="https://www.instagram.com/coralluxdomini" target="_blank" rel="noopener" class="social-link instagram">
+            <div class="social-icon-wrapper">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+            </div>
+            <span class="social-name">Instagram</span>
+            <span class="social-handle">@coralluxdomini</span>
+          </a>
+          <a href="https://www.tiktok.com/@coralluxdomini" target="_blank" rel="noopener" class="social-link tiktok">
+            <div class="social-icon-wrapper">
+              <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+              </svg>
+            </div>
+            <span class="social-name">TikTok</span>
+            <span class="social-handle">@coralluxdomini</span>
+          </a>
+        </div>
+      </div>
+     
+     <div class="contact-info">
+       <p class="muted">Para contato: <a href="mailto:coralluxdomini@gmail.com" class="contact-email">coralluxdomini@gmail.com</a></p>
+     </div>
+   </footer>
+
+           <!-- Modal de colaboração -->
+    <div class="modal-backdrop" id="collaborationModal">
+      <div class="modal collaboration-modal" role="dialog" aria-modal="true" aria-labelledby="collaborationTitle">
+        <div class="modal-header">
+          <div class="coral-banner">
+            <img src="coral.jpeg" alt="Coral Lux Domini" class="coral-image">
+                         <div class="banner-overlay">
+               <h3 id="collaborationTitle">Colabore com nossa missão!</h3>
+             </div>
+          </div>
+        </div>
+                 <div class="modal-content">
+           <p>Você não está pagando pela partitura, mas sim colaborando com a missão do Coral Lux Domini de glorificar a Deus através da música litúrgica.</p>
+           <p>Seu apoio nos ajuda a continuar servindo à Igreja e levando a beleza da música sacra às celebrações eucarísticas.</p>
+         </div>
+        <div class="actions">
+          <button class="btn ghost" id="skipCollaboration">Pular por enquanto</button>
+          <a class="btn" id="collaborateBtn" target="_blank" rel="noopener">Colaborar</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- Instagram embed loader -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+
+  <script>
+         // ===================== CONFIGURAÇÃO =====================
+     const CONFIG = {
+       // 1) Arquivo JSON com as partituras
+       SHEET_JSON_URL: "partituras.json",
+       
+       // 2) Doações (opcional)
+       DONATE: {
+         enable: true,
+         mercadoPagoUrl: "https://nubank.com.br/cobrar/3nj39/6890afe4-e564-4092-8812-db0658cc5ea8"
+       }
+     };
+
+         // ===================== ESTADO =====================
+     const state = { 
+       items: [], 
+       filtered: [], 
+       pendingDownload: null,
+       downloadCount: 0,
+       lastCollaborationShown: 0,
+       currentPage: 1,
+       itemsPerPage: 8
+     };
+
+    // ===================== UTIL =====================
+    function makeDirectDownload(url){
+      try { const u = new URL(url); const m = u.pathname.match(/\/file\/d\/([^/]+)\//); if (m && m[1]) return `https://drive.google.com/uc?export=download&id=${m[1]}`; const id = u.searchParams.get('id'); if (id) return `https://drive.google.com/uc?export=download&id=${id}`; return url; } catch { return url }
+    }
+    
+    // ===================== GERENCIAMENTO DE TEMA =====================
+    function getCurrentTheme() {
+      return document.documentElement.getAttribute('data-theme') || 'dark';
+    }
+    
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeButton(theme);
+    }
+    
+    function toggleTheme() {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    }
+    
+         function updateThemeButton(theme) {
+       const icon = $btnTheme.querySelector('.theme-icon');
+       const text = $btnTheme.querySelector('.theme-text');
+       
+       if (theme === 'light') {
+         icon.textContent = '☀';
+       } else {
+         icon.textContent = '☾';
+       }
+     }
+    
+         function initTheme() {
+       const savedTheme = localStorage.getItem('theme') || 'light';
+       setTheme(savedTheme);
+     }
+    
+    function unique(arr){ return Array.from(new Set(arr)); }
+
+    // ===================== DOM REFS =====================
+         const $grid = document.getElementById('grid');
+     const $tpl = document.getElementById('tpl-card');
+     const $q = document.getElementById('q');
+     const $btnSearch = document.getElementById('btnSearch');
+     const $btnClear = document.getElementById('btnClear');
+     const $btnTheme = document.getElementById('btnTheme');
+     const $filter = document.getElementById('filter');
+     const $pagination = document.getElementById('pagination');
+     const $btnPrev = document.getElementById('btnPrev');
+     const $btnNext = document.getElementById('btnNext');
+     const $pageInfo = document.getElementById('pageInfo');
+         const $collaborationModal = document.getElementById('collaborationModal');
+     const $skipCollaboration = document.getElementById('skipCollaboration');
+     const $collaborateBtn = document.getElementById('collaborateBtn');
+         const $donateWrap = document.getElementById('donateWrap');
+     const $mpLink = document.getElementById('mpLink');
+
+         // ===================== RENDER =====================
+     function render(items){
+       // Calcular itens para a página atual
+       const startIndex = (state.currentPage - 1) * state.itemsPerPage;
+       const endIndex = startIndex + state.itemsPerPage;
+       const itemsToShow = items.slice(startIndex, endIndex);
+       
+       $grid.innerHTML = '';
+       for (const it of itemsToShow){
+         const node = $tpl.content.cloneNode(true);
+         node.querySelector('[data-title]').textContent = it.title || 'Sem título';
+         
+         // Compositor
+         const compositor = node.querySelector('[data-compositor]');
+         if (it.compositor) {
+           compositor.textContent = it.compositor;
+         } else {
+           compositor.style.display = 'none';
+         }
+         
+         const wrap = node.querySelector('[data-tags-wrap]');
+         (it.tags||[]).forEach(t=>{ const span = document.createElement('span'); span.className='tag'; span.textContent=t; wrap.appendChild(span); });
+         const open = node.querySelector('[data-open]');
+         open.href = it.instagram_url || it.instagramUrl || '#';
+         const dl = node.querySelector('[data-download]');
+         dl.href = makeDirectDownload(it.drive_link || it.driveLink || '');
+         // embed
+         const holder = node.querySelector('[data-embed]');
+         const permalink = it.instagram_url || it.instagramUrl || '';
+         holder.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${permalink}" data-instgrm-captioned data-instgrm-version="14"></blockquote>`;
+         $grid.appendChild(node);
+       }
+       
+       // Atualizar controles de paginação
+       updatePagination(items.length);
+       
+       if (window.instgrm && instgrm.Embeds) instgrm.Embeds.process();
+     }
+
+         function buildTagChips(){
+       const all = unique(state.items.flatMap(i => (i.tags||[])));
+       $filter.innerHTML = '';
+       for (const tag of all.sort()){
+         const b = document.createElement('button');
+         b.className = 'chip'; b.textContent = `#${tag}`; b.dataset.tag = tag;
+         b.onclick = () => {
+           const prev = $filter.querySelector('.chip.active');
+           if (prev === b) { b.classList.remove('active'); }
+           else { prev?.classList.remove('active'); b.classList.add('active'); }
+           applySearch();
+         }
+         $filter.appendChild(b);
+       }
+     }
+     
+     // ===================== PAGINAÇÃO =====================
+     function updatePagination(totalItems) {
+       const totalPages = Math.ceil(totalItems / state.itemsPerPage);
+       
+       if (totalPages <= 1) {
+         $pagination.hidden = true;
+         return;
+       }
+       
+       $pagination.hidden = false;
+       $pageInfo.textContent = `Página ${state.currentPage} de ${totalPages}`;
+       
+       $btnPrev.disabled = state.currentPage <= 1;
+       $btnNext.disabled = state.currentPage >= totalPages;
+     }
+     
+     function goToPage(page) {
+       state.currentPage = page;
+       render(state.filtered);
+     }
+     
+     function nextPage() {
+       if (state.currentPage < Math.ceil(state.filtered.length / state.itemsPerPage)) {
+         goToPage(state.currentPage + 1);
+       }
+     }
+     
+     function prevPage() {
+       if (state.currentPage > 1) {
+         goToPage(state.currentPage - 1);
+       }
+     }
+
+         // ===================== BUSCA/FILTRO =====================
+     function applySearch(){
+       const term = ($q.value||'').toLowerCase().trim();
+       const activeTag = $filter.querySelector('.chip.active')?.dataset.tag || null;
+       state.filtered = state.items.filter(it => {
+         const hay = `${it.title} ${(it.tags||[]).join(' ')}`.toLowerCase();
+         const matchTerm = term ? hay.includes(term) : true;
+         const matchTag = activeTag ? (it.tags||[]).includes(activeTag) : true;
+         return matchTerm && matchTag;
+       });
+       
+       // Resetar para primeira página
+       state.currentPage = 1;
+       render(state.filtered);
+     }
+
+         // ===================== DOWNLOAD COM COLETA =====================
+     function shouldShowCollaboration() {
+       // Mostrar no primeiro download e depois a cada 5 downloads
+       return state.downloadCount === 0 || (state.downloadCount - state.lastCollaborationShown) >= 5;
+     }
+     
+     function showCollaborationModal() {
+       $collaborationModal.style.display = 'flex';
+       // Configurar o link de colaboração
+       $collaborateBtn.href = CONFIG.DONATE?.mercadoPagoUrl || '#';
+     }
+     
+     function closeCollaborationModal() {
+       $collaborationModal.style.display = 'none';
+       state.lastCollaborationShown = state.downloadCount;
+     }
+     
+     function completeDownload() {
+       state.downloadCount++;
+       closeCollaborationModal();
+       
+       // Download direto
+       if (state.pendingDownload?.url) {
+         window.open(state.pendingDownload.url, '_blank');
+       }
+     }
+
+              function handleClickDownload(e){
+       const a = e.target.closest('[data-download]');
+       if (!a) return;
+       
+       e.preventDefault();
+       const card = a.closest('.card');
+       const title = card?.querySelector('[data-title]')?.textContent?.trim() || '';
+       const url = a.getAttribute('href');
+       state.pendingDownload = { url, title };
+       
+       // Verificar se deve mostrar o modal de colaboração
+       if (shouldShowCollaboration()) {
+         showCollaborationModal();
+       } else {
+         // Download direto
+         window.open(url, '_blank');
+       }
+     }
+
+    
+
+              // Event listeners para o modal de colaboração
+     $skipCollaboration.addEventListener('click', completeDownload);
+     $collaborateBtn.addEventListener('click', () => {
+       // O link abre em nova aba, mas não fecha o modal
+       // O usuário pode fechar manualmente ou clicar em "Pular por enquanto"
+     });
+     
+     // Fechar modal ao clicar fora dele
+     $collaborationModal.addEventListener('click', (e) => {
+       if (e.target === $collaborationModal) {
+         closeCollaborationModal();
+       }
+     });
+
+    document.addEventListener('click', handleClickDownload, true);
+
+    // ===================== DOAÇÃO =====================
+         function setupDonate(){
+       const d = CONFIG.DONATE || {}; if (!d.enable) return;
+       $donateWrap.hidden = false; $mpLink.href = d.mercadoPagoUrl || '#';
+     }
+
+         // ===================== CARREGAR PARTITURAS =====================
+     async function loadSheet(){
+       if (!CONFIG.SHEET_JSON_URL){ console.warn('Defina SHEET_JSON_URL nas configurações.'); return; }
+       
+       try {
+         const res = await fetch(CONFIG.SHEET_JSON_URL, { cache: 'no-store' });
+         const data = await res.json();
+         
+         if (data.partituras && Array.isArray(data.partituras)) {
+           state.items = data.partituras.map(item => ({
+             id: item.id || '',
+             title: item.title || 'Sem título',
+             instagram_url: item.instagram_url || '',
+             drive_link: item.drive_link || '',
+             tags: Array.isArray(item.tags) ? item.tags : [],
+             compositor: item.compositor || ''
+           }));
+           
+                        buildTagChips();
+             state.filtered = state.items.slice();
+             state.currentPage = 1;
+             render(state.filtered);
+           
+           console.log(`✅ ${state.items.length} partitura(s) carregada(s)`);
+         } else {
+           throw new Error('Formato de arquivo inválido. Esperado: { "partituras": [...] }');
+         }
+                } catch (error) {
+           console.error('❌ Erro ao carregar partituras:', error);
+           const errorCode = Math.random().toString(36).substring(2, 8).toUpperCase();
+           $grid.innerHTML = `
+             <div style="text-align: center; padding: 40px; color: var(--muted);">
+               <h3>⚠️ Erro interno do sistema</h3>
+               <p>Ocorreu um problema inesperado. Tente recarregar a página.</p>
+               <p>Código de erro: <code>${errorCode}</code></p>
+               <p>Se o problema persistir, entre em contato conosco.</p>
+             </div>
+           `;
+         }
+     }
+
+         // ===================== INIT =====================
+     $btnSearch.addEventListener('click', applySearch);
+     $btnClear.addEventListener('click', ()=>{ 
+       $q.value=''; 
+       state.currentPage = 1;
+       state.filtered = state.items.slice();
+       render(state.filtered);
+     });
+     $btnTheme.addEventListener('click', toggleTheme);
+     $btnPrev.addEventListener('click', prevPage);
+     $btnNext.addEventListener('click', nextPage);
+    initTheme();
+    setupDonate();
+    loadSheet();
+  </script>
+</body>
+</html>

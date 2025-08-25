@@ -1,0 +1,9 @@
+services:
+  partituras-app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      # Volume para desenvolvimento - permite editar arquivos sem rebuild
+      - .:/usr/share/nginx/html:ro
+    restart: unless-stopped
