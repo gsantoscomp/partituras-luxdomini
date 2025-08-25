@@ -1,17 +1,16 @@
-# 🎵 Partituras do Coral Lux Domini
+# Partituras do Coral Lux Domini
 
 Site para download de partituras musicais do Coral Lux Domini, com vídeos do Instagram e links para Google Drive.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 📱 Interface responsiva e moderna
-- 🔍 Sistema de busca e filtros por tags
-- 🌓 Tema claro/escuro
-- 📱 Visualização de vídeos do Instagram
-- 📥 Download direto de partituras
-- 🎨 Design elegante e intuitivo
+- Interface responsiva e moderna
+- Sistema de busca e filtros por tags
+- Tema claro/escuro
+- Visualização de vídeos do Instagram
+- Download direto de partituras
 
-## 🚀 Como usar
+## Como usar
 
 1. Acesse o site
 2. Use a barra de busca para encontrar partituras específicas
@@ -19,7 +18,7 @@ Site para download de partituras musicais do Coral Lux Domini, com vídeos do In
 4. Clique em "Baixar partitura" para fazer o download
 5. Clique em "Ver no Instagram" para assistir ao vídeo
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - HTML5
 - CSS3 (com variáveis CSS e design responsivo)
@@ -27,24 +26,24 @@ Site para download de partituras musicais do Coral Lux Domini, com vídeos do In
 - Instagram Embed API
 - Google Drive para armazenamento
 
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 
 ```
 ├── index.html          # Página principal
 ├── partituras.json     # Dados das partituras
 ├── lux-domini.png      # Logo do coral
 ├── coral.jpeg          # Imagem do coral
-└── README.md           # Este arquivo
+├── README.md           # Este arquivo
+└── .gitignore          # Arquivos ignorados pelo Git
 ```
 
-## 🌐 Acesso
+## Contato
 
-O site está disponível em: [https://seu-usuario.github.io/partituras-luxdomini](https://seu-usuario.github.io/partituras-luxdomini)
+Para dúvidas ou suporte, entre em contato: coralluxdomini@gmail.com
 
-## 📧 Contato
+## Links úteis
 
-Para dúvidas ou suporte: coralluxdomini@gmail.com
-
----
-
-Desenvolvido com ❤️ para o Coral Lux Domini
+- [Site no GitHub Pages](https://gsantoscomp.github.io/partituras-luxdomini)
+- [Repositório no GitHub](https://github.com/gsantoscomp/partituras-luxdomini)
+- [Instagram do Coral](https://www.instagram.com/coralluxdomini)
+- [YouTube do Coral](https://www.youtube.com/@coralluxdomini)
