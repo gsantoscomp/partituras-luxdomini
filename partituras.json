@@ -1,6 +1,14 @@
 {
   "partituras": [
     {
+      "id": "partitura-024",
+      "title": "Eis-me aqui",
+      "instagram_url": "https://www.instagram.com/reel/DN3Nkws4p29/?igsh=MXhwOHd0NzFnNXN2ZQ==",
+      "drive_link": "https://drive.google.com/file/d/1pK-b2niyyCBtPp8fY_oUfDvnUlLsUZGH/view?usp=sharing",
+      "tags": ["ação de graças", "pós-comunhão", "polifonia"],
+      "compositor": "Marco Frisina"
+    },
+    {
       "id": "partitura-001",
       "title": "Bendito Sejas",
       "instagram_url": "https://www.instagram.com/p/DNwI-9l4qnG/",
@@ -186,8 +194,8 @@
     }
   ],
   "metadata": {
-    "total": 23,
-    "ultima_atualizacao": "2025-08-25",
+    "total": 24,
+    "ultima_atualizacao": "2025-08-27",
     "versao": "1.3"
   }
 }
