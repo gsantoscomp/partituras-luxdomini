@@ -948,7 +948,6 @@
      const $btnSearch = document.getElementById('btnSearch');
      const $btnClear = document.getElementById('btnClear');
      const $btnTheme = document.getElementById('btnTheme');
-     const $filter = document.getElementById('filter');
      const $pagination = document.getElementById('pagination');
      const $btnPrev = document.getElementById('btnPrev');
      const $btnNext = document.getElementById('btnNext');
@@ -1002,21 +1001,6 @@
         if (window.instgrm && instgrm.Embeds) instgrm.Embeds.process();
       }
 
-         function buildTagChips(){
-       const all = unique(state.items.flatMap(i => (i.tags||[])));
-       $filter.innerHTML = '';
-       for (const tag of all.sort()){
-         const b = document.createElement('button');
-         b.className = 'chip'; b.textContent = `#${tag}`; b.dataset.tag = tag;
-         b.onclick = () => {
-           const prev = $filter.querySelector('.chip.active');
-           if (prev === b) { b.classList.remove('active'); }
-           else { prev?.classList.remove('active'); b.classList.add('active'); }
-           applySearch();
-         }
-         $filter.appendChild(b);
-       }
-     }
      
      // ===================== PAGINAÇÃO =====================
      function updatePagination(totalItems) {
@@ -1061,12 +1045,10 @@
          // ===================== BUSCA/FILTRO =====================
      function applySearch(){
        const term = ($q.value||'').toLowerCase().trim();
-       const activeTag = $filter.querySelector('.chip.active')?.dataset.tag || null;
        state.filtered = state.items.filter(it => {
-         const hay = `${it.title} ${(it.tags||[]).join(' ')}`.toLowerCase();
+         const hay = `${it.title} ${(it.tags||[]).join(' ')} ${it.compositor || ''}`.toLowerCase();
          const matchTerm = term ? hay.includes(term) : true;
-         const matchTag = activeTag ? (it.tags||[]).includes(activeTag) : true;
-         return matchTerm && matchTag;
+         return matchTerm;
        });
        
        // Resetar para primeira página
@@ -1214,6 +1196,19 @@
        state.filtered = state.items.slice();
        render(state.filtered);
      });
+     
+     // Pesquisa em tempo real enquanto o usuário digita
+     $q.addEventListener('input', () => {
+       applySearch();
+     });
+     
+     // Pesquisa ao pressionar Enter
+     $q.addEventListener('keypress', (e) => {
+       if (e.key === 'Enter') {
+         applySearch();
+       }
+     });
+     
      $btnTheme.addEventListener('click', toggleTheme);
      $btnPrev.addEventListener('click', prevPage);
      $btnNext.addEventListener('click', nextPage);
