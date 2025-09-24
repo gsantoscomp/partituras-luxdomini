@@ -66,13 +66,14 @@
       opacity:0.9;
     }
     .subtitle{margin:8px 0 0;color:var(--muted);font-size:14px}
-    .toolbar{margin:18px auto 0;max-width:1100px;display:grid;gap:12px;grid-template-columns:1fr 160px 160px}
+    .toolbar{margin:18px auto 0;max-width:1100px;display:grid;gap:12px;grid-template-columns:1fr 180px 50px}
     .search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--input-border);outline:none;background:var(--input-bg);color:var(--text);transition:border-color 0.3s ease,background-color 0.3s ease}
          .btn{--g:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 50%,#1e40af 100%);appearance:none;border:0;padding:10px 14px;border-radius:10px;font-weight:600;color:#ffffff;cursor:pointer;background:var(--g);box-shadow:0 2px 8px rgba(59,130,246,0.2);transition:all 0.2s ease;text-decoration:none}
     .btn:active{transform:translateY(1px);box-shadow:0 1px 4px rgba(59,130,246,0.3)}
     .btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(59,130,246,0.3)}
     .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);transition:border-color 0.3s ease,color 0.3s ease}
     .btn.ghost:hover{background:rgba(59,130,246,0.05);border-color:var(--accent);color:var(--accent)}
+    select.btn.ghost{appearance:none;background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");background-position:right 8px center;background-repeat:no-repeat;background-size:16px;padding-right:32px;cursor:pointer}
     .filter{margin:12px auto 0;max-width:1100px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
     .chip{padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid var(--border);color:var(--muted);font-size:12px;cursor:pointer;transition:background-color 0.3s ease,border-color 0.3s ease,color 0.3s ease}
     .chip.active{background:var(--accent);color:#ffffff;border-color:var(--accent);box-shadow:0 1px 4px rgba(59,130,246,0.2)}
@@ -467,6 +468,11 @@
            gap: 8px;
          }
          
+         select.btn.ghost {
+           font-size: 14px;
+           padding: 10px 28px 10px 12px;
+         }
+         
          .theme-toggle {
            top: 15px;
            right: 15px;
@@ -667,8 +673,12 @@
     <p class="subtitle">Assista aos nossos vídeos do Instagram e baixe a partitura correspondente.</p>
          <div class="toolbar">
        <input id="q" class="search" type="search" placeholder="Buscar por título, tag ou trecho…" />
-       <button id="btnSearch" class="btn" title="Pesquisar">Pesquisar</button>
-       <button id="btnClear" class="btn ghost" title="Limpar busca">Limpar</button>
+       <select id="sortSelect" class="btn ghost" title="Ordenar por">
+         <option value="id-desc">Mais recentes</option>
+         <option value="id-asc">Mais antigos</option>
+         <option value="title-asc">A-Z</option>
+         <option value="title-desc">Z-A</option>
+       </select>
        <button id="btnTheme" class="btn ghost theme-toggle" title="Alternar tema">
          <span class="theme-icon">☀</span>
        </button>
@@ -945,9 +955,8 @@
          const $grid = document.getElementById('grid');
      const $tpl = document.getElementById('tpl-card');
      const $q = document.getElementById('q');
-     const $btnSearch = document.getElementById('btnSearch');
-     const $btnClear = document.getElementById('btnClear');
      const $btnTheme = document.getElementById('btnTheme');
+     const $sortSelect = document.getElementById('sortSelect');
      const $pagination = document.getElementById('pagination');
      const $btnPrev = document.getElementById('btnPrev');
      const $btnNext = document.getElementById('btnNext');
@@ -1042,14 +1051,50 @@
         }
       }
 
-         // ===================== BUSCA/FILTRO =====================
+         // ===================== ORDENAÇÃO =====================
+     function sortItems(items, sortBy) {
+       const [field, direction] = sortBy.split('-');
+       const isAsc = direction === 'asc';
+       
+       return [...items].sort((a, b) => {
+         let valueA, valueB;
+         
+         switch(field) {
+           case 'id':
+             // Extrair número do ID para ordenação numérica
+             const numA = parseInt(a.id.replace('partitura-', ''));
+             const numB = parseInt(b.id.replace('partitura-', ''));
+             valueA = numA;
+             valueB = numB;
+             break;
+           case 'title':
+             valueA = (a.title || '').toLowerCase();
+             valueB = (b.title || '').toLowerCase();
+             break;
+           default:
+             return 0;
+         }
+         
+         if (valueA < valueB) return isAsc ? -1 : 1;
+         if (valueA > valueB) return isAsc ? 1 : -1;
+         return 0;
+       });
+     }
+
+    // ===================== BUSCA/FILTRO =====================
      function applySearch(){
        const term = ($q.value||'').toLowerCase().trim();
-       state.filtered = state.items.filter(it => {
+       const sortBy = $sortSelect.value || 'id-desc';
+       
+       // Filtrar itens
+       let filtered = state.items.filter(it => {
          const hay = `${it.title} ${(it.tags||[]).join(' ')} ${it.compositor || ''}`.toLowerCase();
          const matchTerm = term ? hay.includes(term) : true;
          return matchTerm;
        });
+       
+       // Ordenar itens filtrados
+       state.filtered = sortItems(filtered, sortBy);
        
        // Resetar para primeira página
        state.currentPage = 1;
@@ -1189,13 +1234,6 @@
        }
 
          // ===================== INIT =====================
-     $btnSearch.addEventListener('click', applySearch);
-     $btnClear.addEventListener('click', ()=>{ 
-       $q.value=''; 
-       state.currentPage = 1;
-       state.filtered = state.items.slice();
-       render(state.filtered);
-     });
      
      // Pesquisa em tempo real enquanto o usuário digita
      $q.addEventListener('input', () => {
@@ -1208,6 +1246,9 @@
          applySearch();
        }
      });
+     
+     // Ordenação
+     $sortSelect.addEventListener('change', applySearch);
      
      $btnTheme.addEventListener('click', toggleTheme);
      $btnPrev.addEventListener('click', prevPage);

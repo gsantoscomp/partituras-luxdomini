@@ -1,5 +1,22 @@
 {
   "partituras": [
+
+    {
+      "id": "partitura-030",
+      "title": "Creio em Ti",
+      "instagram_url": "https://www.instagram.com/reel/DO_T-oijLiG/?igsh=MXAyaG14d3ZndTA5Yw==",
+      "drive_link": "https://drive.google.com/file/d/115qZ6oUv0d-cpFi5BpYb3acNJ1HGsM2g/view?usp=sharing",
+      "tags": ["polifonia"],
+      "compositor": "Marco Frisina / Clayton Dias"
+    },
+    {
+      "id": "partitura-029",
+      "title": "Seguir-te-ei",
+      "instagram_url": "https://www.instagram.com/reel/DO3XwVCEYu_/?igsh=ZXJwMDNwMmQ1aXRm",
+      "drive_link": "https://drive.google.com/file/d/1Moo6yo7o0BQn5c6oUrbgdScYYpeKkob0/view?usp=sharing",
+      "tags": ["polifonia"],
+      "compositor": "Marco Frisina / Lucas Bruzaca"
+    },
     {
       "id": "partitura-028",
       "title": "Ó Cruz Fiel",
@@ -41,11 +58,171 @@
       "compositor": "Marco Frisina"
     },
     {
-      "id": "partitura-001",
-      "title": "Bendito Sejas",
-      "instagram_url": "https://www.instagram.com/p/DNwI-9l4qnG/",
-      "drive_link": "https://drive.google.com/file/d/1YPvWWaUpOhy8iaIsby9r0CykENrV2JUU/view?usp=sharing",
-      "tags": ["bendito", "ofertório", "cnbb", "polifonia"],
+      "id": "partitura-023",
+      "title": "Christus Vincit",
+      "instagram_url": "https://www.instagram.com/reel/DNTKTl3xrkK/?igsh=MWFxMGlxZXA3ODAyNA==",
+      "drive_link": "https://drive.google.com/file/d/1O_ZV95VtEoBTedd3ZUigysTXvXdwD8Up/view?usp=drivesdk",
+      "tags": ["polifonia"],
+      "compositor": "Aloys Kunc"
+    },
+    {
+      "id": "partitura-022",
+      "title": "Peregrinos da esperança",
+      "instagram_url": "https://www.instagram.com/reel/DNI1Ah8R-1j/?igsh=OGVldmp1YXA4Ymds",
+      "drive_link": "https://drive.google.com/file/d/1xZoLWYe5OvaYQ0ODgAVeBX8Fq_ELkrF7/view?usp=drivesdk",
+      "tags": ["jubileu", "polifonia"],
+      "compositor": "Pe. António Cartageno"
+    },
+    {
+      "id": "partitura-021",
+      "title": "Anima Christi",
+      "instagram_url": "https://www.instagram.com/reel/DM8IKZgxmei/?igsh=MWEwYWViZGtwamdycQ==",
+      "drive_link": "https://drive.google.com/file/d/1DrV87UPGsPGhRzZpzG7bwyl_5yvDeEDs/view?usp=drivesdk",
+      "tags": ["pós-comunhão", "ação de graças", "polifonia"],
+      "compositor": "Mons. Marco Frisina"
+    },
+    {
+      "id": "partitura-020",
+      "title": "Adoro Te Devote",
+      "instagram_url": "https://www.instagram.com/reel/DM5MmNsRd6W/?igsh=MTVrZDdoaWc0YXVtMA==",
+      "drive_link": "https://drive.google.com/file/d/1nB8PeCzVcxtlqRzbb5p_aTj96owVqm6M/view?usp=drivesdk",
+      "tags": ["adoro te devote", "gregoriano", "polifonia"],
+      "compositor": "St. Tomás de Aquino"
+    },
+    {
+      "id": "partitura-019",
+      "title": "Santo",
+      "instagram_url": "https://www.instagram.com/reel/DMvNHpCxHtV/?igsh=NnYwdXJwY2hlOGxz",
+      "drive_link": "https://drive.google.com/file/d/1JEntEMkLeBPPtHglOzBsmzXzUB9WUxbM/view?usp=drivesdk",
+      "tags": ["santo", "ordinário", "polifonia"],
+      "compositor": "Pe. António Cartageno"
+    },
+    {
+      "id": "partitura-018",
+      "title": "Cordeiro de Deus",
+      "instagram_url": "https://www.instagram.com/reel/DMiIXfTsc5b/?igsh=M2d5OW02a3QzeTFq",
+      "drive_link": "https://drive.google.com/file/d/1IE_g17IaVXjUCqvLcOUjfLOPqyDgCzA3/view?usp=drivesdk",
+      "tags": ["cordeiro", "ordinário", "polifonia"],
+      "compositor": "Ângelo Cardita"
+    },
+    {
+      "id": "partitura-017",
+      "title": "Derramarei sobre vós",
+      "instagram_url": "https://www.instagram.com/reel/DMalyciMpPB/?igsh=bWxncnhleHFrZ3F2",
+      "drive_link": "https://drive.google.com/file/d/1_OwPWJzyqhPv1vVoyAnkQxPIvPAkKrFX/view?usp=drivesdk",
+      "tags": ["comunhão", "entrada", "gradualromano"],
+      "compositor": "Sílvio Vicente"
+    },
+    {
+      "id": "partitura-016",
+      "title": "Kyrie XI - Orbis Factor",
+      "instagram_url": "https://www.instagram.com/reel/DMVRleTMBAr/?igsh=NWVrOHZ4YWNrMWNj",
+      "drive_link": "https://drive.google.com/file/d/1JClS8N4bhBethGVGy13lc5bhnTtlAu24/view?usp=drivesdk",
+      "tags": ["kyrie", "gregoriano", "ordinário"],
+      "compositor": "Canto Gregoriano"
+    },
+    {
+      "id": "partitura-015",
+      "title": "Glória XI - Orbis Factor",
+      "instagram_url": "https://www.instagram.com/reel/DMS3-QGMJJ7/?igsh=MWNiOW4wYWgxZHBsZw==",
+      "drive_link": "https://drive.google.com/file/d/1XH5TYhS-mU0bMbRrLADd2lmU3VNmO_JP/view?usp=drivesdk",
+      "tags": ["glória", "gregoriano", "ordinário"],
+      "compositor": "Canto Gregoriano"
+    },
+    {
+      "id": "partitura-014",
+      "title": "Recebemos, ó Deus",
+      "instagram_url": "https://www.instagram.com/reel/DL-H4KjMvlZ/?igsh=OGxrYmRraXhlbm5z",
+      "drive_link": "https://drive.google.com/file/d/1ChtFHeqzs79gtS_d9o19AJKasEKApmJ9/view?usp=drivesdk",
+      "tags": ["entrada", "gradualsimples", "uníssono"],
+      "compositor": "Virgílio Solli"
+    },
+    {
+      "id": "partitura-013",
+      "title": "Provai e Vede",
+      "instagram_url": "https://www.instagram.com/reel/DL0BuaNRNy_/?igsh=MXI2YXZ3dm85OWJ4bA==",
+      "drive_link": "https://drive.google.com/file/d/1aqJN1CKGfE9rLpVTs5uf9Yp5w1MYMK6G/view?usp=drivesdk",
+      "tags": ["comunhão", "adlibitum", "uníssono"],
+      "compositor": "Mosteiro de São Bento"
+    },
+    {
+      "id": "partitura-012",
+      "title": "Salve Regina (Tonus Solemnis)",
+      "instagram_url": "https://www.instagram.com/reel/DLx8oDFy8pB/?igsh=ajY4ZjczbmlkMzBm",
+      "drive_link": "https://drive.google.com/file/d/13dBIDmx3sk12_u0Yji4-14yI0QVBSvNz/view?usp=drivesdk",
+      "tags": ["maria", "gregoriano"],
+      "compositor": "Canto Gregoriano"
+    },
+    {
+      "id": "partitura-011",
+      "title": "Cordeiro de Deus",
+      "instagram_url": "https://www.instagram.com/reel/DKuacALRGse/?igsh=Zm5mZGV2cW55eTBv",
+      "drive_link": "https://drive.google.com/file/d/1LGfuE34giJauwe2psCQgUvUde1l_pOe7/view?usp=drivesdk",
+      "tags": ["cordeiro", "ordinário", "polifonia"],
+      "compositor": "Pe. Teodoro de Sousa"
+    },
+    {
+      "id": "partitura-010",
+      "title": "Sequência de Pentecostes",
+      "instagram_url": "https://www.instagram.com/reel/DKpnv8iRwTv/?igsh=cnA0NXh4NmZ2d25o",
+      "drive_link": "https://drive.google.com/file/d/1wojqlT0cCTuAEOrGLULaYZzPd-WDjqwV/view?usp=drivesdk",
+      "tags": ["pentecostes", "polifonia", "sequência"],
+      "compositor": "Frei Wanderson Luiz Freitas"
+    },
+    {
+      "id": "partitura-009",
+      "title": "Todos ficaram cheios",
+      "instagram_url": "https://www.instagram.com/reel/DKpjVGyRxr2/?igsh=MXV1eGIzcmdiYnRmYg==",
+      "drive_link": "https://drive.google.com/file/d/1GTxkAPxViaKJG1iCr1tlHxLd-GqYujjW/view?usp=drivesdk",
+      "tags": ["comunhão", "gradualromano", "polifonia"],
+      "compositor": "Pe. Miguel Carneiro"
+    },
+    {
+      "id": "partitura-008",
+      "title": "Ave Maria",
+      "instagram_url": "https://www.instagram.com/reel/DKPckBGxeiM/?igsh=OGhoaTN2Z215Y2Q2",
+      "drive_link": "https://drive.google.com/file/d/1lWe_2qVH-0gtuHdfl7WqOSvhWNkGp4lf/view?usp=drivesdk",
+      "tags": ["maria", "cnbb", "polifonia"],
+      "compositor": "Pe. José Weber"
+    },
+    {
+      "id": "partitura-007",
+      "title": "Ave Verum Corpus",
+      "instagram_url": "https://www.instagram.com/reel/DKKZVGaRCpd/",
+      "drive_link": "https://drive.google.com/file/d/1lWe_2qVH-0gtuHdfl7WqOSvhWNkGp4lf/view?usp=drivesdk",
+      "tags": ["ação de graças", "pós-comunhão", "polifonia"],
+      "compositor": "Mozart"
+    },
+    {
+      "id": "partitura-006",
+      "title": "Tu és a glória de Jerusalém",
+      "instagram_url": "https://www.instagram.com/reel/DKFPb_-xtrg/?igsh=MWZ5N3FoOXR1ZWNyNg==",
+      "drive_link": "https://drive.google.com/file/d/1_SFxL8WlbWC4tGINK3kf68-ghS2ylgU2/view?usp=drivesdk",
+      "tags": ["maria", "cnbb", "polifonia"],
+      "compositor": "Pe. José Weber"
+    },
+    {
+      "id": "partitura-005",
+      "title": "Rainha do céu",
+      "instagram_url": "https://www.instagram.com/reel/DKChp47xmEC/?igsh=OTUzOG9rM3gzZzc3",
+      "drive_link": "https://drive.google.com/file/d/1FzDNEFr61J1DZrGdR7RNwRIPonFH3WOw/view?usp=drivesdk",
+      "tags": ["maria", "cnbb", "polifonia"],
+      "compositor": "Pe. José Weber"
+    },
+    {
+      "id": "partitura-004",
+      "title": "Assumpta est Maria",
+      "instagram_url": "https://www.instagram.com/p/DNa5T_3R6bJ/",
+      "drive_link": "https://drive.google.com/file/d/1VBM21Ye53qfrHRVUCo2QisCkDFcI3RxD/view?usp=sharing",
+      "tags": ["entrada", "gradualsimples", "polifonia"],
+      "compositor": "Manoel Dias de Oliveira"
+    },
+    {
+      "id": "partitura-003",
+      "title": "Eu sou o pão",
+      "instagram_url": "https://www.instagram.com/p/DNddSRmxuRu/",
+      "drive_link": "https://drive.google.com/file/d/1gTANXnyMfC_gP8JrbcgntzYph_unBXzz/view?usp=sharing",
+      "tags": ["comunhão", "cnbb", "polifonia"],
       "compositor": "José Acácio Santana"
     },
     {
@@ -57,177 +234,17 @@
       "compositor": "Paul Inwood"
     },
     {
-      "id": "partitura-003",
-      "title": "Eu sou o pão",
-      "instagram_url": "https://www.instagram.com/p/DNddSRmxuRu/",
-      "drive_link": "https://drive.google.com/file/d/1gTANXnyMfC_gP8JrbcgntzYph_unBXzz/view?usp=sharing",
-      "tags": ["comunhão", "cnbb", "polifonia"],
+      "id": "partitura-001",
+      "title": "Bendito Sejas",
+      "instagram_url": "https://www.instagram.com/p/DNwI-9l4qnG/",
+      "drive_link": "https://drive.google.com/file/d/1YPvWWaUpOhy8iaIsby9r0CykENrV2JUU/view?usp=sharing",
+      "tags": ["bendito", "ofertório", "cnbb", "polifonia"],
       "compositor": "José Acácio Santana"
-    },
-    {
-      "id": "partitura-004",
-      "title": "Assumpta est Maria",
-      "instagram_url": "https://www.instagram.com/p/DNa5T_3R6bJ/",
-      "drive_link": "https://drive.google.com/file/d/1VBM21Ye53qfrHRVUCo2QisCkDFcI3RxD/view?usp=sharing",
-      "tags": ["entrada", "gradualsimples", "polifonia"],
-      "compositor": "Manoel Dias de Oliveira"
-    },
-    {
-      "id": "partitura-005",
-      "title": "Rainha do céu",
-      "instagram_url": "https://www.instagram.com/reel/DKChp47xmEC/?igsh=OTUzOG9rM3gzZzc3",
-      "drive_link": "https://drive.google.com/file/d/1FzDNEFr61J1DZrGdR7RNwRIPonFH3WOw/view?usp=drivesdk",
-      "tags": ["maria", "cnbb", "polifonia"],
-      "compositor": "Pe. José Weber"
-    },
-    {
-      "id": "partitura-006",
-      "title": "Tu és a glória de Jerusalém",
-      "instagram_url": "https://www.instagram.com/reel/DKFPb_-xtrg/?igsh=MWZ5N3FoOXR1ZWNyNg==",
-      "drive_link": "https://drive.google.com/file/d/1_SFxL8WlbWC4tGINK3kf68-ghS2ylgU2/view?usp=drivesdk",
-      "tags": ["maria", "cnbb", "polifonia"],
-      "compositor": "Pe. José Weber"
-    },
-    {
-      "id": "partitura-007",
-      "title": "Ave Verum Corpus",
-      "instagram_url": "https://www.instagram.com/reel/DKPckBGxeiM/?igsh=OGhoaTN2Z215Y2Q2",
-      "drive_link": "https://drive.google.com/file/d/1lWe_2qVH-0gtuHdfl7WqOSvhWNkGp4lf/view?usp=drivesdk",
-      "tags": ["ação de graças", "pós-comunhão", "polifonia"],
-      "compositor": "Mozart"
-    },
-    {
-      "id": "partitura-008",
-      "title": "Ave Maria",
-      "instagram_url": "https://www.instagram.com/reel/DKPckBGxeiM/?igsh=OGhoaTN2Z215Y2Q2",
-      "drive_link": "https://drive.google.com/file/d/1lWe_2qVH-0gtuHdfl7WqOSvhWNkGp4lf/view?usp=drivesdk",
-      "tags": ["maria", "cnbb", "polifonia"],
-      "compositor": "Pe. José Weber"
-    },
-    {
-      "id": "partitura-009",
-      "title": "Todos ficaram cheios",
-      "instagram_url": "https://www.instagram.com/reel/DKpjVGyRxr2/?igsh=MXV1eGIzcmdiYnRmYg==",
-      "drive_link": "https://drive.google.com/file/d/1GTxkAPxViaKJG1iCr1tlHxLd-GqYujjW/view?usp=drivesdk",
-      "tags": ["comunhão", "gradualromano", "polifonia"],
-      "compositor": "Pe. Miguel Carneiro"
-    },
-    {
-      "id": "partitura-010",
-      "title": "Sequência de Pentecostes",
-      "instagram_url": "https://www.instagram.com/reel/DKpnv8iRwTv/?igsh=cnA0NXh4NmZ2d25o",
-      "drive_link": "https://drive.google.com/file/d/1wojqlT0cCTuAEOrGLULaYZzPd-WDjqwV/view?usp=drivesdk",
-      "tags": ["pentecostes", "polifonia", "sequência"],
-      "compositor": "Frei Wanderson Luiz Freitas"
-    },
-    {
-      "id": "partitura-011",
-      "title": "Cordeiro de Deus",
-      "instagram_url": "https://www.instagram.com/reel/DKuacALRGse/?igsh=Zm5mZGV2cW55eTBv",
-      "drive_link": "https://drive.google.com/file/d/1LGfuE34giJauwe2psCQgUvUde1l_pOe7/view?usp=drivesdk",
-      "tags": ["cordeiro", "ordinário", "polifonia"],
-      "compositor": "Pe. Teodoro de Sousa"
-    },
-    {
-      "id": "partitura-012",
-      "title": "Salve Regina (Tonus Solemnis)",
-      "instagram_url": "https://www.instagram.com/reel/DLx8oDFy8pB/?igsh=ajY4ZjczbmlkMzBm",
-      "drive_link": "https://drive.google.com/file/d/13dBIDmx3sk12_u0Yji4-14yI0QVBSvNz/view?usp=drivesdk",
-      "tags": ["maria", "gregoriano"],
-      "compositor": "Canto Gregoriano"
-    },
-    {
-      "id": "partitura-013",
-      "title": "Provai e Vede",
-      "instagram_url": "https://www.instagram.com/reel/DL0BuaNRNy_/?igsh=MXI2YXZ3dm85OWJ4bA==",
-      "drive_link": "https://drive.google.com/file/d/1aqJN1CKGfE9rLpVTs5uf9Yp5w1MYMK6G/view?usp=drivesdk",
-      "tags": ["comunhão", "adlibitum", "uníssono"],
-      "compositor": "Mosteiro de São Bento"
-    },
-    {
-      "id": "partitura-014",
-      "title": "Recebemos, ó Deus",
-      "instagram_url": "https://www.instagram.com/reel/DL-H4KjMvlZ/?igsh=OGxrYmRraXhlbm5z",
-      "drive_link": "https://drive.google.com/file/d/1ChtFHeqzs79gtS_d9o19AJKasEKApmJ9/view?usp=drivesdk",
-      "tags": ["entrada", "gradualsimples", "uníssono"],
-      "compositor": "Virgílio Solli"
-    },
-    {
-      "id": "partitura-015",
-      "title": "Glória XI - Orbis Factor",
-      "instagram_url": "https://www.instagram.com/reel/DMS3-QGMJJ7/?igsh=MWNiOW4wYWgxZHBsZw==",
-      "drive_link": "https://drive.google.com/file/d/1XH5TYhS-mU0bMbRrLADd2lmU3VNmO_JP/view?usp=drivesdk",
-      "tags": ["glória", "gregoriano", "ordinário"],
-      "compositor": "Canto Gregoriano"
-    },
-    {
-      "id": "partitura-016",
-      "title": "Kyrie XI - Orbis Factor",
-      "instagram_url": "https://www.instagram.com/reel/DMVRleTMBAr/?igsh=NWVrOHZ4YWNrMWNj",
-      "drive_link": "https://drive.google.com/file/d/1JClS8N4bhBethGVGy13lc5bhnTtlAu24/view?usp=drivesdk",
-      "tags": ["kyrie", "gregoriano", "ordinário"],
-      "compositor": "Canto Gregoriano"
-    },
-    {
-      "id": "partitura-017",
-      "title": "Derramarei sobre vós",
-      "instagram_url": "https://www.instagram.com/reel/DMalyciMpPB/?igsh=bWxncnhleHFrZ3F2",
-      "drive_link": "https://drive.google.com/file/d/1_OwPWJzyqhPv1vVoyAnkQxPIvPAkKrFX/view?usp=drivesdk",
-      "tags": ["comunhão", "entrada", "gradualromano"],
-      "compositor": "Sílvio Vicente"
-    },
-    {
-      "id": "partitura-018",
-      "title": "Cordeiro de Deus",
-      "instagram_url": "https://www.instagram.com/reel/DMiIXfTsc5b/?igsh=M2d5OW02a3QzeTFq",
-      "drive_link": "https://drive.google.com/file/d/1IE_g17IaVXjUCqvLcOUjfLOPqyDgCzA3/view?usp=drivesdk",
-      "tags": ["cordeiro", "ordinário", "polifonia"],
-      "compositor": "Ângelo Cardita"
-    },
-    {
-      "id": "partitura-019",
-      "title": "Santo",
-      "instagram_url": "https://www.instagram.com/reel/DMvNHpCxHtV/?igsh=NnYwdXJwY2hlOGxz",
-      "drive_link": "https://drive.google.com/file/d/1JEntEMkLeBPPtHglOzBsmzXzUB9WUxbM/view?usp=drivesdk",
-      "tags": ["santo", "ordinário", "polifonia"],
-      "compositor": "Pe. António Cartageno"
-    },
-    {
-      "id": "partitura-020",
-      "title": "Adoro Te Devote",
-      "instagram_url": "https://www.instagram.com/reel/DM5MmNsRd6W/?igsh=MTVrZDdoaWc0YXVtMA==",
-      "drive_link": "https://drive.google.com/file/d/1nB8PeCzVcxtlqRzbb5p_aTj96owVqm6M/view?usp=drivesdk",
-      "tags": ["adoro te devote", "gregoriano", "polifonia"],
-      "compositor": "St. Tomás de Aquino"
-    },
-    {
-      "id": "partitura-021",
-      "title": "Anima Christi",
-      "instagram_url": "https://www.instagram.com/reel/DM8IKZgxmei/?igsh=MWEwYWViZGtwamdycQ==",
-      "drive_link": "https://drive.google.com/file/d/1DrV87UPGsPGhRzZpzG7bwyl_5yvDeEDs/view?usp=drivesdk",
-      "tags": ["pós-comunhão", "ação de graças", "polifonia"],
-      "compositor": "Mons. Marco Frisina"
-    },
-    {
-      "id": "partitura-022",
-      "title": "Peregrinos da esperança",
-      "instagram_url": "https://www.instagram.com/reel/DNI1Ah8R-1j/?igsh=OGVldmp1YXA4Ymds",
-      "drive_link": "https://drive.google.com/file/d/1xZoLWYe5OvaYQ0ODgAVeBX8Fq_ELkrF7/view?usp=drivesdk",
-      "tags": ["jubileu", "polifonia"],
-      "compositor": "Pe. António Cartageno"
-    },
-    {
-      "id": "partitura-023",
-      "title": "Christus Vincit",
-      "instagram_url": "https://www.instagram.com/reel/DNTKTl3xrkK/?igsh=MWFxMGlxZXA3ODAyNA==",
-      "drive_link": "https://drive.google.com/file/d/1O_ZV95VtEoBTedd3ZUigysTXvXdwD8Up/view?usp=drivesdk",
-      "tags": ["polifonia"],
-      "compositor": "Aloys Kunc"
     }
   ],
   "metadata": {
-    "total": 24,
-    "ultima_atualizacao": "2025-08-27",
+    "total": 30,
+    "ultima_atualizacao": "2025-09-24",
     "versao": "1.3"
   }
 }
