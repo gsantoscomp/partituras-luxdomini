@@ -445,10 +445,14 @@
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .modal-content {
       padding: 40px;
+      overflow-y: auto;
+      flex: 1;
     }
 
     .modal-content h3 {
@@ -478,6 +482,7 @@
       align-items: center;
       padding: 0 40px 40px;
       position: relative;
+      flex-shrink: 0;
     }
 
     .modal-btn {
@@ -549,40 +554,72 @@
     }
 
     @media (max-width: 768px) {
+      .modal-backdrop {
+        padding: 10px;
+        align-items: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
       .modal {
-        max-width: 95vw;
+        max-width: 100%;
+        width: 100%;
+        max-height: calc(100vh - 20px);
+        margin: auto 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .modal-content {
-        padding: 32px 24px;
+        padding: 24px 20px;
+        max-height: none;
+        overflow-y: visible;
       }
 
       .modal-content h3 {
-        font-size: 24px;
+        font-size: 22px;
       }
 
       .modal-content p {
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.6;
       }
 
       .modal-actions {
         flex-direction: column;
-        padding: 0 24px 32px;
+        padding: 0 20px 24px;
+        gap: 12px;
       }
 
       .modal-btn-primary {
         max-width: 100%;
         width: 100%;
+        order: 1;
       }
 
       .skip-timer-wrapper {
         position: static;
-        align-self: flex-end;
-        margin-top: 8px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        order: 2;
+        margin-top: 0;
       }
 
       .skip-timer-text {
         font-size: 11px;
+      }
+
+      .modal-btn-skip {
+        display: none;
+        padding: 10px 16px;
+        font-size: 13px;
+      }
+
+      .modal-btn-skip.visible {
+        display: block;
       }
     }
   </style>
@@ -703,9 +740,8 @@
       <div class="modal-content">
         <h3>Colabore com nossa missão</h3>
         <p>A produção deste álbum "Luz que Vem ao Mundo" e do clipe foi um trabalho extremamente custoso, envolvendo meses de dedicação, ensaios, gravação em estúdio profissional, produção musical, edição de áudio e vídeo, além de todos os recursos necessários para garantir a qualidade do material que entregamos.</p>
-        <p>Da mesma forma, o caderno de partituras demandou horas de estudo, transcrição cuidadosa e formatação profissional para garantir a precisão de cada partitura.</p>
-        <p>Buscamos disponibilizar todo este material - álbum, clipe e partituras - de forma completamente gratuita, pois acreditamos que a música litúrgica deve ser acessível a todos e que nosso chamado é glorificar a Deus através do canto.</p>
-        <p>Por isso, pedimos sua colaboração. Não estamos vendendo acesso - tudo continuará gratuito para todos. Mas sua contribuição nos ajuda a continuar produzindo material de qualidade para a música litúrgica e a manter viva essa missão que tanto amamos.</p>
+        <p>Da mesma forma, o caderno de partituras demandou horas de estudo, transcrição cuidadosa e formatação profissional para garantir a precisão de cada partitura. Entendemos que o estudo e a prática musical são fundamentais para o desenvolvimento de corais e músicos, e por isso decidimos disponibilizar este material de forma gratuita, facilitando o acesso e o aprendizado.</p>
+        <p>Por isso, pedimos sua colaboração. Não estamos vendendo as partituras. Mas sua contribuição nos ajuda a continuar produzindo material de qualidade e a manter viva essa missão que tanto amamos.</p>
       </div>
       <div class="modal-actions">
         <div class="skip-timer-wrapper">
@@ -745,9 +781,15 @@
     function showPartiturasModal() {
       // Esconder o botão de pular e mostrar mensagem inicialmente
       $skipPartituras.classList.remove('visible');
+      $skipPartituras.style.display = 'none'; // Garantir que está escondido
       $skipTimerText.classList.remove('hidden');
       skipCountdown = 15;
       $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
+      
+      // Prevenir scroll do body no mobile
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
       
       // Mostrar o modal
       $partiturasModal.classList.add('show');
@@ -755,6 +797,7 @@
       // Limpar timer anterior se existir
       if (skipTimer) {
         clearInterval(skipTimer);
+        skipTimer = null;
       }
       
       // Iniciar contagem regressiva de 15 segundos
@@ -767,6 +810,7 @@
           // Quando chegar a zero, esconder a mensagem e mostrar o botão
           $skipTimerText.classList.add('hidden');
           $skipPartituras.classList.add('visible');
+          $skipPartituras.style.display = ''; // Remover style inline para permitir CSS
           clearInterval(skipTimer);
           skipTimer = null;
         }
@@ -775,6 +819,12 @@
 
     function closePartiturasModal() {
       $partiturasModal.classList.remove('show');
+      
+      // Restaurar scroll do body
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      
       // Limpar timer se o modal for fechado antes dos 15 segundos
       if (skipTimer) {
         clearInterval(skipTimer);
@@ -782,6 +832,7 @@
       }
       // Esconder o botão e mostrar mensagem novamente
       $skipPartituras.classList.remove('visible');
+      $skipPartituras.style.display = 'none'; // Garantir que está escondido
       $skipTimerText.classList.remove('hidden');
       skipCountdown = 15;
       $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
