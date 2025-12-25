@@ -337,6 +337,127 @@
           
           .donate .code{padding:8px 10px;border-radius:10px;border:1px dashed var(--border);background:var(--bg);color:var(--muted);transition:background-color 0.3s ease,border-color 0.3s ease}
     
+    /* Banner do álbum */
+    .album-banner {
+      margin: 32px 0 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+    
+    .album-banner-content {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+      border: 1px solid #404040;
+      border-radius: 24px;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .album-banner-content:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+      border-color: #555555;
+    }
+    
+    .album-banner-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%, rgba(255, 255, 255, 0.02) 100%);
+      pointer-events: none;
+    }
+    
+    .album-banner-text {
+      flex: 1;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .album-banner-text h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    
+    .album-banner-text p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    }
+    
+    .album-banner-action {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .album-banner-btn {
+      background: var(--border);
+      border: 1px solid var(--text);
+      color: var(--text);
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    
+    .album-banner-btn:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    }
+    
+    
+    @media (max-width: 768px) {
+      .album-banner-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+        gap: 20px;
+      }
+      
+      .album-banner-text h3 {
+        font-size: 24px;
+      }
+      
+      .album-banner-text p {
+        font-size: 14px;
+      }
+      
+      .album-banner-btn {
+        padding: 12px 24px;
+        font-size: 15px;
+      }
+    }
+    
          /* Botão de tema */
      .theme-toggle {
        position: absolute;
@@ -677,6 +798,21 @@
   </header>
 
        <main>
+               <!-- Banner de lançamento do álbum -->
+        <section class="album-banner" id="albumBanner">
+          <a href="album.html" class="album-banner-content">
+            <div class="album-banner-text">
+              <h3>Novo Álbum Lançado</h3>
+              <p>Ouça "Luz que Vem ao Mundo" nas principais plataformas digitais e baixe o caderno completo de partituras</p>
+            </div>
+            <div class="album-banner-action">
+              <span class="album-banner-btn">
+                Ver Álbum
+              </span>
+            </div>
+          </a>
+        </section>
+        
                <!-- Seção de apoio ao coral em destaque -->
         <section class="donate" id="donateWrap" hidden>
           <div class="donate-content">

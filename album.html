@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luz que Vem ao Mundo — Coral Lux Domini</title>
+  <meta name="description" content="Ouça o novo álbum Luz que Vem ao Mundo do Coral Lux Domini nas principais plataformas digitais e baixe o caderno de partituras">
+  <style>
+    :root {
+      /* Tema Escuro com tons profissionais */
+      --bg: #0a0a0a;
+      --card: #1a1a1a;
+      --text: #e8e8e8;
+      --muted: #888888;
+      --accent: #4a5568;
+      --accent2: #2d3748;
+      --radius: 12px;
+      --header-bg: rgba(10, 10, 10, 0.98);
+      --border: #2a2a2a;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      padding: 32px 20px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo {
+      height: 70px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .back-link {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      transition: all 0.2s ease;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      background: var(--border);
+      border-color: var(--muted);
+    }
+
+    .back-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle:hover {
+      background: var(--border);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .album-hero {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      margin-bottom: 80px;
+      align-items: start;
+    }
+
+    @media (min-width: 900px) {
+      .album-hero {
+        grid-template-columns: 420px 1fr;
+      }
+    }
+
+    .album-cover-wrapper {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .album-cover {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+      background: var(--card);
+    }
+
+    .album-cover:hover {
+      transform: translateY(-4px);
+    }
+
+    .album-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius);
+    }
+
+    .album-info h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin: 0 0 12px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+
+    .album-info .artist {
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 32px;
+      font-weight: 400;
+    }
+
+    .platforms-section {
+      margin: 48px 0 0;
+    }
+
+    .platforms-section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 20px;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .platform-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .platform-link:hover {
+      background: var(--border);
+      border-color: var(--muted);
+      transform: translateY(-2px);
+    }
+
+    .platform-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .platform-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .platform-name {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .video-section {
+      margin: 80px 0;
+    }
+
+    .video-section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 32px;
+      text-align: center;
+      letter-spacing: -0.3px;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    .download-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 56px 40px;
+      margin: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .download-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, transparent 50%, rgba(255, 255, 255, 0.03) 100%);
+      pointer-events: none;
+    }
+
+    .download-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-section p {
+      font-size: 18px;
+      margin: 0 0 40px;
+      color: var(--text);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+      opacity: 0.9;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 40px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--border);
+      border: 2px solid var(--text);
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-btn:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    }
+
+    .download-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .download-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 48px 24px;
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 100px;
+    }
+
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 24px 16px;
+      }
+
+      .back-link {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 20px;
+      }
+
+      .theme-toggle {
+        position: static;
+        margin: 0 auto 20px;
+      }
+
+      main {
+        padding: 40px 16px;
+      }
+
+      .album-hero {
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .album-info h1 {
+        font-size: 32px;
+      }
+
+      .download-section {
+        padding: 40px 24px;
+        margin: 60px 0;
+      }
+
+      .download-section h2 {
+        font-size: 28px;
+      }
+
+      .download-section p {
+        font-size: 16px;
+      }
+
+      .download-btn {
+        padding: 16px 32px;
+        font-size: 16px;
+      }
+
+      .platforms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Modal de colaboração */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 700px;
+      width: 100%;
+      padding: 0;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-content {
+      padding: 40px;
+    }
+
+    .modal-content h3 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: var(--text);
+      letter-spacing: -0.5px;
+    }
+
+    .modal-content p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 0 0 16px;
+      opacity: 0.9;
+    }
+
+    .modal-content p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px 40px;
+      position: relative;
+    }
+
+    .modal-btn {
+      padding: 16px 36px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      flex: 1;
+      max-width: 280px;
+    }
+
+    .modal-btn-primary:hover {
+      background: var(--muted);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
+    }
+
+    .skip-timer-wrapper {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .skip-timer-text {
+      font-size: 12px;
+      color: var(--muted);
+      opacity: 0.7;
+      white-space: nowrap;
+      transition: opacity 0.3s ease;
+    }
+
+    .skip-timer-text.hidden {
+      display: none;
+    }
+
+    .modal-btn-skip {
+      background: transparent;
+      color: var(--muted);
+      opacity: 0.5;
+      font-size: 14px;
+      padding: 12px 20px;
+      display: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-btn-skip.visible {
+      display: block;
+    }
+
+    .modal-btn-skip:hover {
+      opacity: 0.8;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .modal {
+        max-width: 95vw;
+      }
+
+      .modal-content {
+        padding: 32px 24px;
+      }
+
+      .modal-content h3 {
+        font-size: 24px;
+      }
+
+      .modal-content p {
+        font-size: 15px;
+      }
+
+      .modal-actions {
+        flex-direction: column;
+        padding: 0 24px 32px;
+      }
+
+      .modal-btn-primary {
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .skip-timer-wrapper {
+        position: static;
+        align-self: flex-end;
+        margin-top: 8px;
+      }
+
+      .skip-timer-text {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </a>
+    <button class="theme-toggle" id="btnTheme" title="Alternar tema" style="display: none;">
+      <span class="theme-icon">☾</span>
+    </button>
+    <div class="logo-container">
+      <img src="lux-domini.png" alt="Logo Lux Domini" class="logo">
+    </div>
+  </header>
+
+  <main>
+    <div class="album-hero">
+      <div class="album-cover-wrapper">
+        <div class="album-cover">
+          <img src="luz-do-mundo.jpg" alt="Luz que Vem ao Mundo - Capa do Álbum">
+        </div>
+      </div>
+      
+      <div class="album-info">
+        <h1>Luz que Vem ao Mundo</h1>
+        <p class="artist">Coral Lux Domini</p>
+        
+        <div class="platforms-section">
+          <h2>Ouça nas plataformas</h2>
+          <div class="platforms-grid">
+            <a href="https://open.spotify.com/intl-pt/album/150HVHDC7ENO2V57G918jh?si=llH5tzMmQTKqMKHeBVUzzA&utm_medium=share&utm_source=linktree&nd=1&dlsi=4764efd948ed42cb" target="_blank" rel="noopener" class="platform-link">
+              <div class="platform-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.3.421-1.02.599-1.56.3z"/>
+                </svg>
+              </div>
+              <span class="platform-name">Spotify</span>
+            </a>
+            <a href="https://music.youtube.com/playlist?list=OLAK5uy_l2-bfIeiop7OuUXrNLEARQ7qkwHaFHYu4&si=O4WIZeBJrfN_TxGb" target="_blank" rel="noopener" class="platform-link">
+              <div class="platform-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </div>
+              <span class="platform-name">YouTube Music</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="platform-link">
+              <div class="platform-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                </svg>
+              </div>
+              <span class="platform-name">Apple Music</span>
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="platform-link">
+              <div class="platform-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="2" y="4" width="3" height="16" rx="1.5"/>
+                  <rect x="9" y="8" width="3" height="12" rx="1.5"/>
+                  <rect x="16" y="4" width="3" height="16" rx="1.5"/>
+                </svg>
+              </div>
+              <span class="platform-name">Deezer</span>
+            </a>
+            <a href="https://music.amazon.com.br/albums/B0GCBV211C" target="_blank" rel="noopener" class="platform-link">
+              <div class="platform-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+              </div>
+              <span class="platform-name">Amazon Music</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-section">
+      <h2>Clipe</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/pgMIhTs46vE?si=KhbUeMOQW15oYiOa" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="download-section">
+      <h2>Caderno de Partituras</h2>
+      <p>Baixe o caderno completo de partituras do álbum</p>
+      <a href="#" class="download-btn" id="downloadPartituras">
+        <span class="download-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </span>
+        Baixar Partituras
+      </a>
+    </div>
+  </main>
+
+  <!-- Modal de colaboração para partituras -->
+  <div class="modal-backdrop" id="partiturasModal">
+    <div class="modal">
+      <div class="modal-content">
+        <h3>Colabore com nossa missão</h3>
+        <p>A produção deste álbum "Luz que Vem ao Mundo" e do clipe foi um trabalho extremamente custoso, envolvendo meses de dedicação, ensaios, gravação em estúdio profissional, produção musical, edição de áudio e vídeo, além de todos os recursos necessários para garantir a qualidade do material que entregamos.</p>
+        <p>Da mesma forma, o caderno de partituras demandou horas de estudo, transcrição cuidadosa e formatação profissional para garantir a precisão de cada partitura.</p>
+        <p>Buscamos disponibilizar todo este material - álbum, clipe e partituras - de forma completamente gratuita, pois acreditamos que a música litúrgica deve ser acessível a todos e que nosso chamado é glorificar a Deus através do canto.</p>
+        <p>Por isso, pedimos sua colaboração. Não estamos vendendo acesso - tudo continuará gratuito para todos. Mas sua contribuição nos ajuda a continuar produzindo material de qualidade para a música litúrgica e a manter viva essa missão que tanto amamos.</p>
+      </div>
+      <div class="modal-actions">
+        <div class="skip-timer-wrapper">
+          <span class="skip-timer-text" id="skipTimerText">Você poderá pular em 15 segundos</span>
+          <button class="modal-btn modal-btn-skip" id="skipPartituras">Pular</button>
+        </div>
+        <a href="https://nubank.com.br/cobrar/3nj39/6890afe4-e564-4092-8812-db0658cc5ea8" target="_blank" rel="noopener" class="modal-btn modal-btn-primary" id="collaboratePartituras">
+          Colaborar
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Coral Lux Domini © 2026</p>
+    <p>Para dúvidas: <a href="mailto:coralluxdomini@gmail.com">coralluxdomini@gmail.com</a></p>
+  </footer>
+
+  <script>
+    // ===================== CONFIGURAÇÃO =====================
+    const ALBUM_CONFIG = {
+      // Link para download das partituras (Google Drive)
+      partiturasUrl: "#" // Substitua pelo link do Google Drive
+    };
+
+    // ===================== DOM REFS =====================
+    const $downloadBtn = document.getElementById('downloadPartituras');
+    const $partiturasModal = document.getElementById('partiturasModal');
+    const $skipPartituras = document.getElementById('skipPartituras');
+    const $skipTimerText = document.getElementById('skipTimerText');
+    const $collaboratePartituras = document.getElementById('collaboratePartituras');
+
+    // ===================== MODAL DE PARTITURAS =====================
+    let skipTimer = null;
+    let skipCountdown = 15;
+
+    function showPartiturasModal() {
+      // Esconder o botão de pular e mostrar mensagem inicialmente
+      $skipPartituras.classList.remove('visible');
+      $skipTimerText.classList.remove('hidden');
+      skipCountdown = 15;
+      $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
+      
+      // Mostrar o modal
+      $partiturasModal.classList.add('show');
+      
+      // Limpar timer anterior se existir
+      if (skipTimer) {
+        clearInterval(skipTimer);
+      }
+      
+      // Iniciar contagem regressiva de 15 segundos
+      skipTimer = setInterval(() => {
+        skipCountdown--;
+        
+        if (skipCountdown > 0) {
+          $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} ${skipCountdown === 1 ? 'segundo' : 'segundos'}`;
+        } else {
+          // Quando chegar a zero, esconder a mensagem e mostrar o botão
+          $skipTimerText.classList.add('hidden');
+          $skipPartituras.classList.add('visible');
+          clearInterval(skipTimer);
+          skipTimer = null;
+        }
+      }, 1000);
+    }
+
+    function closePartiturasModal() {
+      $partiturasModal.classList.remove('show');
+      // Limpar timer se o modal for fechado antes dos 15 segundos
+      if (skipTimer) {
+        clearInterval(skipTimer);
+        skipTimer = null;
+      }
+      // Esconder o botão e mostrar mensagem novamente
+      $skipPartituras.classList.remove('visible');
+      $skipTimerText.classList.remove('hidden');
+      skipCountdown = 15;
+      $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
+    }
+
+    function downloadPartituras() {
+      if (ALBUM_CONFIG.partiturasUrl && ALBUM_CONFIG.partiturasUrl !== "#") {
+        window.open(ALBUM_CONFIG.partiturasUrl, '_blank');
+      }
+      closePartiturasModal();
+    }
+
+    // Event listeners
+    $downloadBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showPartiturasModal();
+    });
+
+    $skipPartituras.addEventListener('click', () => {
+      downloadPartituras();
+    });
+
+    $collaboratePartituras.addEventListener('click', () => {
+      // Link abre em nova aba, modal fecha após um momento
+      setTimeout(() => {
+        downloadPartituras();
+      }, 500);
+    });
+
+    // Fechar modal ao clicar fora
+    $partiturasModal.addEventListener('click', (e) => {
+      if (e.target === $partiturasModal) {
+        closePartiturasModal();
+      }
+    });
+
+    // Fechar modal com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && $partiturasModal.classList.contains('show')) {
+        closePartiturasModal();
+      }
+    });
+
+    // Inicializar: esconder botão de pular
+    $skipPartituras.classList.remove('visible');
+  </script>
+</body>
+</html>
