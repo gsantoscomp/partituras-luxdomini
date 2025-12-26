@@ -309,6 +309,63 @@
       opacity: 0.9;
     }
 
+    .download-subtitle {
+      font-size: 20px;
+      font-weight: 500;
+      margin-bottom: 32px !important;
+      opacity: 0.95;
+    }
+
+    .download-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 0 0 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .feature-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--muted);
+      transform: translateY(-2px);
+    }
+
+    .feature-item svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: var(--text);
+    }
+
+    .feature-item span {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .download-note {
+      font-size: 14px !important;
+      margin-top: 20px !important;
+      margin-bottom: 0 !important;
+      opacity: 0.7;
+      font-style: italic;
+    }
+
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -408,9 +465,31 @@
         font-size: 16px;
       }
 
+      .download-subtitle {
+        font-size: 18px;
+      }
+
+      .download-features {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .feature-item {
+        padding: 14px;
+      }
+
+      .feature-item span {
+        font-size: 14px;
+      }
+
       .download-btn {
         padding: 16px 32px;
         font-size: 16px;
+      }
+
+      .download-note {
+        font-size: 13px !important;
       }
 
       .platforms-grid {
@@ -418,210 +497,6 @@
       }
     }
 
-    /* Modal de colaboração */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      z-index: 9999;
-      backdrop-filter: blur(8px);
-    }
-
-    .modal-backdrop.show {
-      display: flex;
-    }
-
-    .modal {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      max-width: 700px;
-      width: 100%;
-      padding: 0;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-content {
-      padding: 40px;
-      overflow-y: auto;
-      flex: 1;
-    }
-
-    .modal-content h3 {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0 0 20px;
-      color: var(--text);
-      letter-spacing: -0.5px;
-    }
-
-    .modal-content p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text);
-      margin: 0 0 16px;
-      opacity: 0.9;
-    }
-
-    .modal-content p:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .modal-actions {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      align-items: center;
-      padding: 0 40px 40px;
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .modal-btn {
-      padding: 16px 36px;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: none;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      flex: 1;
-      max-width: 280px;
-    }
-
-    .modal-btn-primary:hover {
-      background: var(--muted);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
-    }
-
-    .skip-timer-wrapper {
-      position: absolute;
-      top: -12px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 8px;
-    }
-
-    .skip-timer-text {
-      font-size: 12px;
-      color: var(--muted);
-      opacity: 0.7;
-      white-space: nowrap;
-      transition: opacity 0.3s ease;
-    }
-
-    .skip-timer-text.hidden {
-      display: none;
-    }
-
-    .modal-btn-skip {
-      background: transparent;
-      color: var(--muted);
-      opacity: 0.5;
-      font-size: 14px;
-      padding: 12px 20px;
-      display: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .modal-btn-skip.visible {
-      display: block;
-    }
-
-    .modal-btn-skip:hover {
-      opacity: 0.8;
-      color: var(--text);
-    }
-
-    @media (max-width: 768px) {
-      .modal-backdrop {
-        padding: 10px;
-        align-items: flex-start;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .modal {
-        max-width: 100%;
-        width: 100%;
-        max-height: calc(100vh - 20px);
-        margin: auto 0;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .modal-content {
-        padding: 24px 20px;
-        max-height: none;
-        overflow-y: visible;
-      }
-
-      .modal-content h3 {
-        font-size: 22px;
-      }
-
-      .modal-content p {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .modal-actions {
-        flex-direction: column;
-        padding: 0 20px 24px;
-        gap: 12px;
-      }
-
-      .modal-btn-primary {
-        max-width: 100%;
-        width: 100%;
-        order: 1;
-      }
-
-      .skip-timer-wrapper {
-        position: static;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        order: 2;
-        margin-top: 0;
-      }
-
-      .skip-timer-text {
-        font-size: 11px;
-      }
-
-      .modal-btn-skip {
-        display: none;
-        padding: 10px 16px;
-        font-size: 13px;
-      }
-
-      .modal-btn-skip.visible {
-        display: block;
-      }
-    }
   </style>
 </head>
 <body>
@@ -720,8 +595,31 @@
 
     <div class="download-section">
       <h2>Caderno de Partituras</h2>
-      <p>Baixe o caderno completo de partituras do álbum</p>
-      <a href="#" class="download-btn" id="downloadPartituras">
+      <p class="download-subtitle">Partituras completas e profissionais do álbum "Luz que Vem ao Mundo"</p>
+      <div class="download-features">
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Transcrição profissional e precisa</span>
+        </div>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Formatação de alta qualidade</span>
+        </div>
+        <div class="feature-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Pronto para impressão e estudo</span>
+        </div>
+      </div>
+      <a href="https://pay.kiwify.com.br/BvG1rzP" target="_blank" rel="noopener" class="download-btn" id="downloadPartituras">
         <span class="download-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -729,155 +627,16 @@
             <line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
         </span>
-        Baixar Partituras
+        Adquirir Partituras Agora
       </a>
+      <p class="download-note">Acesso imediato após a compra</p>
     </div>
   </main>
-
-  <!-- Modal de colaboração para partituras -->
-  <div class="modal-backdrop" id="partiturasModal">
-    <div class="modal">
-      <div class="modal-content">
-        <h3>Colabore com nossa missão</h3>
-        <p>A produção deste álbum "Luz que Vem ao Mundo" e do clipe foi um trabalho extremamente custoso, envolvendo meses de dedicação, ensaios, gravação em estúdio profissional, produção musical, edição de áudio e vídeo, além de todos os recursos necessários para garantir a qualidade do material que entregamos.</p>
-        <p>Da mesma forma, o caderno de partituras demandou horas de estudo, transcrição cuidadosa e formatação profissional para garantir a precisão de cada partitura. Entendemos que o estudo e a prática musical são fundamentais para o desenvolvimento de corais e músicos, e por isso decidimos disponibilizar este material de forma gratuita, facilitando o acesso e o aprendizado.</p>
-        <p>Por isso, pedimos sua colaboração. Não estamos vendendo as partituras. Mas sua contribuição nos ajuda a continuar produzindo material de qualidade e a manter viva essa missão que tanto amamos.</p>
-      </div>
-      <div class="modal-actions">
-        <div class="skip-timer-wrapper">
-          <span class="skip-timer-text" id="skipTimerText">Você poderá pular em 15 segundos</span>
-          <button class="modal-btn modal-btn-skip" id="skipPartituras">Pular</button>
-        </div>
-        <a href="https://nubank.com.br/cobrar/3nj39/6890afe4-e564-4092-8812-db0658cc5ea8" target="_blank" rel="noopener" class="modal-btn modal-btn-primary" id="collaboratePartituras">
-          Colaborar
-        </a>
-      </div>
-    </div>
-  </div>
 
   <footer>
     <p>Coral Lux Domini © 2026</p>
     <p>Para dúvidas: <a href="mailto:coralluxdomini@gmail.com">coralluxdomini@gmail.com</a></p>
   </footer>
 
-  <script>
-    // ===================== CONFIGURAÇÃO =====================
-    const ALBUM_CONFIG = {
-      // Link para download das partituras (Google Drive)
-      partiturasUrl: "#" // Substitua pelo link do Google Drive
-    };
-
-    // ===================== DOM REFS =====================
-    const $downloadBtn = document.getElementById('downloadPartituras');
-    const $partiturasModal = document.getElementById('partiturasModal');
-    const $skipPartituras = document.getElementById('skipPartituras');
-    const $skipTimerText = document.getElementById('skipTimerText');
-    const $collaboratePartituras = document.getElementById('collaboratePartituras');
-
-    // ===================== MODAL DE PARTITURAS =====================
-    let skipTimer = null;
-    let skipCountdown = 15;
-
-    function showPartiturasModal() {
-      // Esconder o botão de pular e mostrar mensagem inicialmente
-      $skipPartituras.classList.remove('visible');
-      $skipPartituras.style.display = 'none'; // Garantir que está escondido
-      $skipTimerText.classList.remove('hidden');
-      skipCountdown = 15;
-      $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
-      
-      // Prevenir scroll do body no mobile
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-      
-      // Mostrar o modal
-      $partiturasModal.classList.add('show');
-      
-      // Limpar timer anterior se existir
-      if (skipTimer) {
-        clearInterval(skipTimer);
-        skipTimer = null;
-      }
-      
-      // Iniciar contagem regressiva de 15 segundos
-      skipTimer = setInterval(() => {
-        skipCountdown--;
-        
-        if (skipCountdown > 0) {
-          $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} ${skipCountdown === 1 ? 'segundo' : 'segundos'}`;
-        } else {
-          // Quando chegar a zero, esconder a mensagem e mostrar o botão
-          $skipTimerText.classList.add('hidden');
-          $skipPartituras.classList.add('visible');
-          $skipPartituras.style.display = ''; // Remover style inline para permitir CSS
-          clearInterval(skipTimer);
-          skipTimer = null;
-        }
-      }, 1000);
-    }
-
-    function closePartiturasModal() {
-      $partiturasModal.classList.remove('show');
-      
-      // Restaurar scroll do body
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
-      
-      // Limpar timer se o modal for fechado antes dos 15 segundos
-      if (skipTimer) {
-        clearInterval(skipTimer);
-        skipTimer = null;
-      }
-      // Esconder o botão e mostrar mensagem novamente
-      $skipPartituras.classList.remove('visible');
-      $skipPartituras.style.display = 'none'; // Garantir que está escondido
-      $skipTimerText.classList.remove('hidden');
-      skipCountdown = 15;
-      $skipTimerText.textContent = `Você poderá pular em ${skipCountdown} segundos`;
-    }
-
-    function downloadPartituras() {
-      if (ALBUM_CONFIG.partiturasUrl && ALBUM_CONFIG.partiturasUrl !== "#") {
-        window.open(ALBUM_CONFIG.partiturasUrl, '_blank');
-      }
-      closePartiturasModal();
-    }
-
-    // Event listeners
-    $downloadBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showPartiturasModal();
-    });
-
-    $skipPartituras.addEventListener('click', () => {
-      downloadPartituras();
-    });
-
-    $collaboratePartituras.addEventListener('click', () => {
-      // Link abre em nova aba, modal fecha após um momento
-      setTimeout(() => {
-        downloadPartituras();
-      }, 500);
-    });
-
-    // Fechar modal ao clicar fora
-    $partiturasModal.addEventListener('click', (e) => {
-      if (e.target === $partiturasModal) {
-        closePartiturasModal();
-      }
-    });
-
-    // Fechar modal com ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && $partiturasModal.classList.contains('show')) {
-        closePartiturasModal();
-      }
-    });
-
-    // Inicializar: esconder botão de pular
-    $skipPartituras.classList.remove('visible');
-  </script>
 </body>
 </html>
